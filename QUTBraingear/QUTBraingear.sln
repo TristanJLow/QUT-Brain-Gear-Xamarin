@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QUTBraingear", "QUTBraingear\QUTBraingear.csproj", "{C858F941-FC3B-480C-8A7B-C41B48599EFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QUTBraingear.Droid", "Droid\QUTBraingear.Droid.csproj", "{BCC91222-70F4-4842-93C0-C4D32345FE23}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BCC91222-70F4-4842-93C0-C4D32345FE23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCC91222-70F4-4842-93C0-C4D32345FE23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCC91222-70F4-4842-93C0-C4D32345FE23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCC91222-70F4-4842-93C0-C4D32345FE23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C858F941-FC3B-480C-8A7B-C41B48599EFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C858F941-FC3B-480C-8A7B-C41B48599EFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C858F941-FC3B-480C-8A7B-C41B48599EFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C858F941-FC3B-480C-8A7B-C41B48599EFD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
