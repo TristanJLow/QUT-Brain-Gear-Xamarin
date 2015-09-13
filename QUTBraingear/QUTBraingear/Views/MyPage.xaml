@@ -1,10 +1,16 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="QUTBraingear.MyPage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="QUTBraingear.MyPage" Padding="30">
 	<ContentPage.Content>
-	<StackLayout Spacing="10">
-		<Label Text="MainPage" BackgroundColor="Red" Font="20" />
-		<Label Text="S" BackgroundColor="Yellow" />
-		<Label Text="Go" BackgroundColor="Green" />
-	</StackLayout>
+		<StackLayout x:Name="stacklayout_navbarPlaceholder" VerticalOptions="Start">
+			<StackLayout>
+				<Label x:Name="label_videoPlaceholder" Text="VideoPlaceholder" BackgroundColor="Blue" Font="20" HeightRequest="100" />
+				<Frame x:Name="frame_liveqa" HeightRequest="120" OutlineColor="Silver" BackgroundColor="White">
+					<Label x:Name="label_liveqa" Text="Live Q*A" TextColor="Black" />
+				</Frame>
+				<Frame x:Name="frame_skillPoints" HeightRequest="120" OutlineColor="Silver" BackgroundColor="White">
+					<Label x:Name="label_subjectPoints" Text="Xamarin dev - 20points" TextColor="Black" />
+				</Frame>
+			</StackLayout>
+		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>
