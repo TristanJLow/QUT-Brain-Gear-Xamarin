@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="QUTBraingear.MyPage">
+	<ContentPage.Content>
+	<StackLayout Spacing="10">
+		<Label Text="MainPage" BackgroundColor="Red" Font="20" />
+		<Label Text="S" BackgroundColor="Yellow" />
+		<Label Text="Go" BackgroundColor="Green" />
+	</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

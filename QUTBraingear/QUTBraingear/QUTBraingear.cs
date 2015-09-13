@@ -8,8 +8,9 @@ namespace QUTBraingear
 	{
 		public App ()
 		{
+			MainPage =new MyPage ();
 			// The root page of your application
-			MainPage = new ContentPage {
+			/*MainPage = new ContentPage {
 				Content = new StackLayout {
 					VerticalOptions = LayoutOptions.Center,
 					Children = {
@@ -19,7 +20,7 @@ namespace QUTBraingear
 						}
 					}
 				}
-			};
+			};*/
 		}
 
 		protected override void OnStart ()
