@@ -1,14 +1,29 @@
 ﻿using System;
 
 using Xamarin.Forms;
+using GalaSoft.MvvmLight.Ioc;
+using QUTBraingear.Data;
+using QUTBraingear.Data.ViewModel;
 
 namespace QUTBraingear
 {
 	public class App : Application
 	{
+		private static ViewModelLocator _locator;
+		private static NavigationService nav;
+		public static ViewModelLocator Locator
+		{
+			get
+			{
+				return _locator ?? (_locator = new ViewModelLocator());
+			}
+		}
+
 		public App ()
 		{
-			MainPage =new MyPage ();
+			
+			MainPage = getMainPage ();
+			//MainPage =new MyPage ();
 			// The root page of your application
 			/*MainPage = new ContentPage {
 				Content = new StackLayout {
@@ -21,6 +36,17 @@ namespace QUTBraingear
 					}
 				}
 			};*/
+		}
+
+		public Page getMainPage()
+		{
+			nav = new NavigationService ();
+			nav.Configure (ViewModelLocator.MyPagePageKey, typeof(MyPage));
+			//nav.Configure (ViewModelLocator.NoteDetailPageKey, typeof(NoteDetailsPage));
+			SimpleIoc.Default.Register<IMyNavigationService> (()=> nav, true);
+			var navPage = new NavigationPage (new MyPage ());
+			nav.Initialize (navPage);
+			return navPage;
 		}
 
 		protected override void OnStart ()

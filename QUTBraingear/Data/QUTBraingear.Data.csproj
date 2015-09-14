@@ -6,9 +6,9 @@
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <ProjectGuid>{320FE6F5-C151-4C03-B7CC-84D066692F8F}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Data</RootNamespace>
+    <RootNamespace>QUTBraingear.Data</RootNamespace>
     <AssemblyName>Data</AssemblyName>
-    <TargetFrameworkProfile>Profile7</TargetFrameworkProfile>
+    <TargetFrameworkProfile>Profile259</TargetFrameworkProfile>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -36,6 +36,7 @@
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="Interfaces\IPageLifeCycleEvents.cs" />
     <Compile Include="Interfaces\IMyNavigationService.cs" />
+    <Compile Include="ViewModel\MyPageViewModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.4.4.6392\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.4.4.6392\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />

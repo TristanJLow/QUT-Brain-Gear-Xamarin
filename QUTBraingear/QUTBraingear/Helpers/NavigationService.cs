@@ -4,7 +4,7 @@ using Xamarin.Forms;
 using System.Linq;
 using System.Diagnostics;
 using System.Reflection;
-using Data;
+using QUTBraingear.Data;
 
 namespace QUTBraingear
 {

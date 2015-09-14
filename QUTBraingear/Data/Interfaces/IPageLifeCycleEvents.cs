@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Data
+namespace QUTBraingear.Data
 {
 	public interface IPageLifeCycleEvents
 	{

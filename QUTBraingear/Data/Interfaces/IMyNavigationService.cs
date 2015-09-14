@@ -2,7 +2,7 @@
 using Xamarin.Forms;
 using GalaSoft.MvvmLight.Views;
 
-namespace Data
+namespace QUTBraingear.Data
 {
 	public interface IMyNavigationService : INavigationService
 	{

@@ -5,7 +5,7 @@ using System.Text;
 
 using Xamarin.Forms;
 
-namespace Data
+namespace QUTBraingear.Data
 {
 	public class MyPage : ContentPage
 	{

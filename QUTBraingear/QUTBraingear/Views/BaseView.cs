@@ -1,6 +1,6 @@
 ﻿using System;
 using Xamarin.Forms;
-using Data;
+using QUTBraingear.Data;
 
 namespace QUTBraingear
 {

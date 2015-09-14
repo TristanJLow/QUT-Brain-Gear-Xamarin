@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="QUTBraingear.MyPage" Padding="30">
-	<ContentPage.Content>
+<BaseView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+x:Class="QUTBraingear.MyPage" Padding="30">
 		<StackLayout x:Name="stacklayout_navbarPlaceholder" VerticalOptions="Start">
 			<StackLayout>
 				<Label x:Name="label_videoPlaceholder" Text="VideoPlaceholder" BackgroundColor="Blue" Font="20" HeightRequest="100" />
@@ -57,5 +57,4 @@
 				</Frame>
 			</StackLayout>
 		</StackLayout>
-	</ContentPage.Content>
-</ContentPage>
+	</BaseView>

@@ -1,3 +1,5 @@
+
+
 /*
   In App.xaml:
   <Application.Resources>
@@ -16,7 +18,7 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
 
-namespace Data.ViewModel
+namespace QUTBraingear.Data.ViewModel
 {
     /// <summary>
     /// This class contains static references to all the view models in the
@@ -24,6 +26,7 @@ namespace Data.ViewModel
     /// </summary>
     public class ViewModelLocator
     {
+		public const string MyPagePageKey = "MyPage";
         /// <summary>
         /// Initializes a new instance of the ViewModelLocator class.
         /// </summary>
@@ -42,8 +45,26 @@ namespace Data.ViewModel
             ////    SimpleIoc.Default.Register<IDataService, DataService>();
             ////}
 
-            SimpleIoc.Default.Register<MainViewModel>();
-        }
+			/*SimpleIoc.Default.Register<NoteListViewModel>(() => 
+				{
+					return new NoteListViewModel(
+						SimpleIoc.Default.GetInstance<IMyNavigationService>()
+					);
+				});*/
+			SimpleIoc.Default.Register<MyPageViewModel>(() => 
+				{
+					return new MyPageViewModel(
+						SimpleIoc.Default.GetInstance<IMyNavigationService>()
+					);
+				});        
+		}
+
+		public MyPageViewModel MyPage
+		{
+			get {
+				return ServiceLocator.Current.GetInstance<MyPageViewModel> ();
+			}
+		}
 
         public MainViewModel Main
         {
