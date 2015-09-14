@@ -6,30 +6,54 @@
 				<Label x:Name="label_videoPlaceholder" Text="VideoPlaceholder" BackgroundColor="Blue" Font="20" HeightRequest="100" />
 				<Frame x:Name="frame_liveqa" HeightRequest="120" OutlineColor="Silver" BackgroundColor="White">
 					<Label x:Name="label_liveqa" Text="Live Q*A" TextColor="Black" />
-					<ListView x:Name="listview_QAUpcoming" >
-						<ListView.ItemTemplate>
-							<DataTemplate>
-								<ViewCell>
-									<Grid>
-										<Grid.RowDefinitions>
-											<RowDefinition Height="1*" />
-											<RowDefinition Height="1*" />
-										</Grid.RowDefinitions>
-										<Grid.ColumnDefinitions>
-											<ColumnDefinition Width="2*" />
-											<ColumnDefinition Width="1*" />
-										</Grid.ColumnDefinitions>
-										<Label Grid.Row="0" Grid.ColumnSpan="1" Text="{Binding qaTitle}" TextColor="Black" />
-										<Label Grid.Row="0" Grid.ColumnSpan="1" Text="{Binding dateOccurs}" TextColor="Black" />
-									</Grid>
-								</ViewCell>
-							</DataTemplate>
-						</ListView.ItemTemplate>
-					</ListView>
+					<ScrollView>
+						<ListView x:Name="listview_QAUpcoming" >
+							<ListView.ItemTemplate>
+								<DataTemplate>
+									<ViewCell>
+										<Grid>
+											<Grid.RowDefinitions>
+												<RowDefinition Height="1*" />
+												<RowDefinition Height="1*" />
+											</Grid.RowDefinitions>
+											<Grid.ColumnDefinitions>
+												<ColumnDefinition Width="2*" />
+												<ColumnDefinition Width="1*" />
+											</Grid.ColumnDefinitions>
+											<Label Grid.Row="0" Grid.Column="0" Text="{Binding qaTitle}" TextColor="Black" />
+											<Label Grid.Row="0" Grid.Column="1" Text="{Binding dateOccurs}" TextColor="Black" />
+										</Grid>
+									</ViewCell>
+								</DataTemplate>
+							</ListView.ItemTemplate>
+						</ListView>
+					</ScrollView>
 				</Frame>
 
 				<Frame x:Name="frame_skillPoints" HeightRequest="120" OutlineColor="Silver" BackgroundColor="White">
-					<Label x:Name="label_subjectPoints" Text="Xamarin dev - 20points" TextColor="Black" />
+					<Label x:Name="label_subjectPoints" Text="Point Progression" TextColor="Black" />
+					<ScrollView>
+						<ListView x:Name="listview_pointProgress" >
+							<ListView.ItemTemplate>
+								<DataTemplate>
+									<ViewCell>
+										<Grid>
+											<Grid.RowDefinitions>
+												<RowDefinition Height="1*" />
+												<RowDefinition Height="1*" />
+											</Grid.RowDefinitions>
+											<Grid.ColumnDefinitions>
+												<ColumnDefinition Width="2*" />
+												<ColumnDefinition Width="1*" />
+											</Grid.ColumnDefinitions>
+											<Label Grid.Row="0" Grid.Column="0" Text="{Binding skillTitle}" TextColor="Black" />
+											<Label Grid.Row="0" Grid.Column="1"  Text="{Binding skillPoints}" TextColor="Black" />
+										</Grid>
+									</ViewCell>
+								</DataTemplate>
+							</ListView.ItemTemplate>
+						</ListView>
+					</ScrollView>
 				</Frame>
 			</StackLayout>
 		</StackLayout>
