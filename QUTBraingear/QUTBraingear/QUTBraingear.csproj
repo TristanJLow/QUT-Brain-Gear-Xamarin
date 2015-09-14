@@ -39,6 +39,10 @@
     <Compile Include="Controls\Skills.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="Views\BaseView.cs" />
+    <Compile Include="Helpers\NavigationService.cs" />
+    <Compile Include="Converters\BooleanConverter.cs" />
+    <Compile Include="Converters\ValueConverterBase.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.4.4.6392\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.4.4.6392\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
@@ -69,10 +73,18 @@
   <ItemGroup>
     <Folder Include="Views\" />
     <Folder Include="Controls\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Converters\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\MyPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Data\QUTBraingear.Data.csproj">
+      <Project>{320FE6F5-C151-4C03-B7CC-84D066692F8F}</Project>
+      <Name>QUTBraingear.Data</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>
