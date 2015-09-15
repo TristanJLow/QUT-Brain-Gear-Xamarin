@@ -9,6 +9,8 @@ namespace QUTBraingear.Data
 {
 	public class MyPageViewModel : ViewModelBase
 	{
+		private IMyNavigationService navigationService;
+
 		private string qaTitle;
 
 		public string QaTitle
@@ -29,7 +31,7 @@ namespace QUTBraingear.Data
 
 		public MyPageViewModel (IMyNavigationService navigationService)
 		{
-			
+			this.navigationService = navigationService;
 		}
 	}
 }

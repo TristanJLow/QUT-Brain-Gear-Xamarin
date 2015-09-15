@@ -10,9 +10,10 @@ namespace QUTBraingear
 	{
 		public MyPage ()
 		{
+			BindingContext = App.Locator.MyPage;
 			InitializeComponent ();
 			base.Init ();
-			BindingContext = App.Locator.MyPage;
+			Title = "MyPage";
 
 			/*var upcomingQA = new List<QA> ();
 			var firstQA = new QA ("Xamarin Dev", DateTime.Now.ToString ());
