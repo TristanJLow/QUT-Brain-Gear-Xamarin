@@ -31,7 +31,14 @@ namespace QUTBraingear.Data
 
 		public MyPageViewModel (IMyNavigationService navigationService)
 		{
+			QaTitle = "xmaarin";
+			QaOccurs = DateTime.Now.ToString ();
 			this.navigationService = navigationService;
+			/*var mypageVM = ServiceLocator.Current.GetInstance<MyPageViewModel>();
+			mypageVM.qaTitle = "Xamarin ex";
+			mypageVM.qaOccurs = DateTime.Now.ToString ();*/
+		
+
 		}
 	}
 }

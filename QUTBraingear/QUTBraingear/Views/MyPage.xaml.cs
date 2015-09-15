@@ -11,6 +11,7 @@ namespace QUTBraingear
 		public MyPage ()
 		{
 			BindingContext = App.Locator.MyPage;
+
 			InitializeComponent ();
 			base.Init ();
 			Title = "MyPage";
