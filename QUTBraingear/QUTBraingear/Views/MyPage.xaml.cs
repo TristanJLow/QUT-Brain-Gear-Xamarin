@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using QUTBraingear.Data.ViewModel;
 using Xamarin.Forms;
+using QUTBraingear.Data;
+using Microsoft.Practices.ServiceLocation;
 
 namespace QUTBraingear
 {
@@ -10,11 +12,10 @@ namespace QUTBraingear
 	{
 		public MyPage ()
 		{
-			BindingContext = App.Locator.MyPage;
 
 			InitializeComponent ();
 			base.Init ();
-			Title = "MyPage";
+			//BindingContext = App.Locator.MyPage;
 
 			/*var upcomingQA = new List<QA> ();
 			var firstQA = new QA ("Xamarin Dev", DateTime.Now.ToString ());
@@ -29,6 +30,12 @@ namespace QUTBraingear
 			skillList.Add (firstSkill);
 			skillList.Add (secondSkill);
 			listview_pointProgress.ItemsSource = skillList;*/
+		}
+
+		protected override void OnAppearing ()
+		{
+			base.OnAppearing ();
+			var vm = ServiceLocator.Current.GetInstance<MyPageViewModel> ();
 		}
 	}
 }

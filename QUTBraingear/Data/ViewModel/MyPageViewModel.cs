@@ -16,7 +16,8 @@ namespace QUTBraingear.Data
 		public string QaTitle
 		{
 			get { return qaTitle; }
-			set { qaTitle = value; }
+			set { qaTitle = value;
+				RaisePropertyChanged(() => QaTitle); }
 		}
 
 		private string qaOccurs;
@@ -24,7 +25,8 @@ namespace QUTBraingear.Data
 		public string QaOccurs
 		{
 			get { return qaOccurs; }
-			set { qaOccurs = value; }	
+			set { qaOccurs = value; 
+				RaisePropertyChanged(() => QaOccurs);}	
 		}
 
 
@@ -32,7 +34,7 @@ namespace QUTBraingear.Data
 		public MyPageViewModel (IMyNavigationService navigationService)
 		{
 			QaTitle = "xmaarin";
-			QaOccurs = DateTime.Now.ToString ();
+			QaOccurs = "12/1/1";
 			this.navigationService = navigationService;
 			/*var mypageVM = ServiceLocator.Current.GetInstance<MyPageViewModel>();
 			mypageVM.qaTitle = "Xamarin ex";
@@ -40,6 +42,10 @@ namespace QUTBraingear.Data
 		
 
 		}
+
+		/*public void OnAppearing(){
+			RaisePropertyChanged (() => qaTitle);
+		}*/
 	}
 }
 

@@ -1,9 +1,8 @@
 ﻿using System;
-
-using Xamarin.Forms;
 using GalaSoft.MvvmLight.Ioc;
-using QUTBraingear.Data;
+using Xamarin.Forms;
 using QUTBraingear.Data.ViewModel;
+using QUTBraingear.Data;
 
 namespace QUTBraingear
 {
@@ -21,34 +20,22 @@ namespace QUTBraingear
 
 		public App ()
 		{
-			
-			MainPage = getMainPage ();
-			//MainPage =new MyPage ();
+
 			// The root page of your application
-			/*MainPage = new ContentPage {
-				Content = new StackLayout {
-					VerticalOptions = LayoutOptions.Center,
-					Children = {
-						new Label {
-							XAlign = TextAlignment.Center,
-							Text = "Welcome to Xamarin Forms!"
-						}
-					}
-				}
-			};*/
+			MainPage = GetMainPage();
+
 		}
 
-		public Page getMainPage()
+		public Page GetMainPage()
 		{
 			nav = new NavigationService ();
-			nav.Configure (ViewModelLocator.MyPagePageKey, typeof(MyPage));
-			//nav.Configure (ViewModelLocator.NoteDetailPageKey, typeof(NoteDetailsPage));
+			nav.Configure (ViewModelLocator.NoteListPageKey, typeof(NoteListPage));
+			nav.Configure (ViewModelLocator.NoteDetailPageKey, typeof(NoteDetailsPage));
 			SimpleIoc.Default.Register<IMyNavigationService> (()=> nav, true);
-			var navPage = new NavigationPage (new MyPage ());
+			var navPage = new NavigationPage (new NoteListPage ());
 			nav.Initialize (navPage);
 			return navPage;
 		}
-
 		protected override void OnStart ()
 		{
 			// Handle when your app starts
