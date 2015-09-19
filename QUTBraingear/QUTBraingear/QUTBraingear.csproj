@@ -32,20 +32,12 @@
   <ItemGroup>
     <Compile Include="QUTBraingear.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\MyPage.xaml.cs">
-      <DependentUpon>MyPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\QA.cs" />
-    <Compile Include="Controls\Skills.cs" />
     <Compile Include="Views\BaseView.cs" />
     <Compile Include="Helpers\NavigationService.cs" />
     <Compile Include="Converters\BooleanConverter.cs" />
     <Compile Include="Converters\ValueConverterBase.cs" />
-    <Compile Include="Views\NoteListPage.xaml.cs">
-      <DependentUpon>NoteListPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\NoteDetailsPage.xaml.cs">
-      <DependentUpon>NoteDetailsPage.xaml</DependentUpon>
+    <Compile Include="Views\OverviewPage.cs">
+      <DependentUpon>OverviewPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
@@ -81,13 +73,7 @@
     <Folder Include="Converters\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\MyPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\NoteListPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\NoteDetailsPage.xaml">
+    <EmbeddedResource Include="Views\OverviewPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

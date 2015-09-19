@@ -5,9 +5,9 @@ using QUTBraingear.Data.ViewModel;
 
 namespace QUTBraingear
 {
-	public partial class NoteListPage : BaseView
+	public partial class OverviewPage : BaseView
 	{
-		public NoteListPage ()
+		public OverviewPage ()
 		{
 			InitializeComponent ();
 			base.Init ();
@@ -16,10 +16,7 @@ namespace QUTBraingear
 
 		}
 
-		protected void ButtonClicked(object sender, EventArgs e)
-		{
-			Navigation.PushAsync (new NoteDetailsPage ());
-		}
+
 
 	}
 }

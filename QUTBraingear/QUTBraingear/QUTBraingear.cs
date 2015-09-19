@@ -29,10 +29,9 @@ namespace QUTBraingear
 		public Page GetMainPage()
 		{
 			nav = new NavigationService ();
-			nav.Configure (ViewModelLocator.NoteListPageKey, typeof(NoteListPage));
-			nav.Configure (ViewModelLocator.NoteDetailPageKey, typeof(NoteDetailsPage));
+			nav.Configure (ViewModelLocator.OverviewPagePageKey, typeof(OverviewPage));
 			SimpleIoc.Default.Register<IMyNavigationService> (()=> nav, true);
-			var navPage = new NavigationPage (new NoteListPage ());
+			var navPage = new NavigationPage (new OverviewPage ());
 			nav.Initialize (navPage);
 			return navPage;
 		}

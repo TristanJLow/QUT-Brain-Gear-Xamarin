@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace QUTBraingear
+namespace QUTBraingear.Data
 {
 	public class Skills
 	{

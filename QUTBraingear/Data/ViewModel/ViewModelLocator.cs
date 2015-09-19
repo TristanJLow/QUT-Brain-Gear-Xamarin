@@ -24,8 +24,7 @@ namespace QUTBraingear.Data.ViewModel
 	/// </summary>
 	public class ViewModelLocator
 	{
-		public const string NoteListPageKey = "NoteListPage";
-		public const string NoteDetailPageKey = "NoteDetailPage";
+		public const string OverviewPagePageKey = "OverviewPage";
 		/// <summary>
 		/// Initializes a new instance of the ViewModelLocator class.
 		/// </summary>
@@ -44,35 +43,24 @@ namespace QUTBraingear.Data.ViewModel
 			////    SimpleIoc.Default.Register<IDataService, DataService>();
 			////}
 
-			SimpleIoc.Default.Register<NoteListViewModel>(() => 
+			SimpleIoc.Default.Register<OverviewPageViewModel>(() => 
 				{
-					return new NoteListViewModel(
+					return new OverviewPageViewModel(
 						SimpleIoc.Default.GetInstance<IMyNavigationService>()
 					);
 				});
-			SimpleIoc.Default.Register<NoteDetailViewModel>(() => 
-				{
-					return new NoteDetailViewModel(
-						SimpleIoc.Default.GetInstance<IMyNavigationService>()
-					);
-				});
+			
 		}
 
-		public NoteListViewModel NoteList
+		public OverviewPageViewModel NoteList
 		{
 			get
 			{
-				return ServiceLocator.Current.GetInstance<NoteListViewModel>();
+				return ServiceLocator.Current.GetInstance<OverviewPageViewModel>();
 			}
 		}
 
-		public NoteDetailViewModel NoteDetail
-		{
-			get
-			{
-				return ServiceLocator.Current.GetInstance<NoteDetailViewModel> ();
-			}
-		}
+
 		public static void Cleanup()
 		{
 			// TODO Clear the ViewModels
