@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BaseView xmlns="http://xamarin.com/schemas/2014/forms" 
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+x:Class="QUTBraingear.OverviewPage">
+	<StackLayout>
+			    <Label x:Name="label_videoPlaceholder" Text="VideoPlaceholder" BackgroundColor="Blue" Font="20" HeightRequest="100" />
+			    <Frame x:Name="frame_liveqa"  HeightRequest="120" OutlineColor="Silver" BackgroundColor="White" >
+			    	<ScrollView>
+						<ListView x:Name="listview_liveqa" ItemsSource="{Binding QAList, Mode=OneWay}">
+						<ListView.Header>
+							<Label x:Name="label_qaSection" FontSize="Large" TextColor="Black" Text="Live Questions and Answers" />
+
+						</ListView.Header>
+							<ListView.ItemTemplate>
+								<DataTemplate>
+									<ViewCell>
+										<Grid >
+											<Grid.RowDefinitions>
+												<RowDefinition Height="1*"/>
+												<RowDefinition Height="1*"/>
+											</Grid.RowDefinitions>
+											<Grid.ColumnDefinitions>
+												<ColumnDefinition Width="2*"/>
+												<ColumnDefinition Width="1*"/>
+											</Grid.ColumnDefinitions>
+											<Label Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding qaTitle}" TextColor ="Black"/>
+											<Label Grid.Row="1" Grid.Column="2" Text="{Binding dateOccurs}" TextColor ="Black"/>
+										</Grid>
+									</ViewCell>
+								</DataTemplate>
+							</ListView.ItemTemplate>
+						</ListView>
+					</ScrollView>
+				</Frame>
+				<Frame x:Name="frame_skills"  HeightRequest="120" OutlineColor="Silver" BackgroundColor="White" >
+			    	<ScrollView>
+						<ListView x:Name="listview_skills" ItemsSource="{Binding SkillList, Mode=OneWay}">
+						<ListView.Header>
+							<Label x:Name="label_skillSection" FontSize="Large" TextColor="Black" Text="Skills" />
+
+						</ListView.Header>
+							<ListView.ItemTemplate>
+								<DataTemplate>
+									<ViewCell>
+										<Grid >
+											<Grid.RowDefinitions>
+												<RowDefinition Height="1*"/>
+												<RowDefinition Height="1*"/>
+											</Grid.RowDefinitions>
+											<Grid.ColumnDefinitions>
+												<ColumnDefinition Width="2*"/>
+												<ColumnDefinition Width="1*"/>
+											</Grid.ColumnDefinitions>
+											<Label Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding skillTitle}" TextColor ="Black"/>
+											<Label Grid.Row="1" Grid.Column="2" Text="{Binding skillPoints}" TextColor ="Black"/>
+										</Grid>
+									</ViewCell>
+								</DataTemplate>
+							</ListView.ItemTemplate>
+						</ListView>
+					</ScrollView>
+				</Frame>
+	</StackLayout>
+</BaseView>
