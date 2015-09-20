@@ -24,7 +24,9 @@ x:Class="QUTBraingear.OverviewPage">
 												<ColumnDefinition Width="1*"/>
 											</Grid.ColumnDefinitions>
 											<Label Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding qaTitle}" TextColor ="Black"/>
-											<Label Grid.Row="1" Grid.Column="2" Text="{Binding dateOccurs}" TextColor ="Black"/>
+											<Frame Grid.Row="1" Grid.Column="2" OutlineColor="Black" BackgroundColor="Red" Padding="0">
+												<Label XAlign="Center"  Text="{Binding dateOccurs}" TextColor ="White"/>
+											</Frame>
 										</Grid>
 									</ViewCell>
 								</DataTemplate>
@@ -32,7 +34,7 @@ x:Class="QUTBraingear.OverviewPage">
 						</ListView>
 					</ScrollView>
 				</Frame>
-				<Frame x:Name="frame_skills"  HeightRequest="120" OutlineColor="Silver" BackgroundColor="White" >
+				<Frame x:Name="frame_skills" Padding="20"  HeightRequest="150" OutlineColor="Silver" BackgroundColor="White" >
 			    	<ScrollView>
 						<ListView x:Name="listview_skills" ItemsSource="{Binding SkillList, Mode=OneWay}">
 						<ListView.Header>
@@ -42,10 +44,11 @@ x:Class="QUTBraingear.OverviewPage">
 							<ListView.ItemTemplate>
 								<DataTemplate>
 									<ViewCell>
-										<Grid >
+										<Grid>
 											<Grid.RowDefinitions>
 												<RowDefinition Height="1*"/>
 												<RowDefinition Height="1*"/>
+
 											</Grid.RowDefinitions>
 											<Grid.ColumnDefinitions>
 												<ColumnDefinition Width="2*"/>

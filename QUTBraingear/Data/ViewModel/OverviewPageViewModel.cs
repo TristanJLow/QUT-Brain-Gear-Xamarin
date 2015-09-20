@@ -48,8 +48,12 @@ namespace QUTBraingear.Data.ViewModel
 		public OverviewPageViewModel(IMyNavigationService navigationService)
 		{
 			this.navigationService = navigationService;
-			QAList.Add (new QA ("Xamarin Development", DateTime.Now.ToString()));
+			QAList.Add (new QA ("Xamarin Development", "LIVE"));
 			SkillList.Add (new Skills ("Xamarin", "20"));
+			SkillList.Add (new Skills ("C#", "15"));
+			SkillList.Add (new Skills ("Parallel Programming", "5"));
+			SkillList.Add (new Skills ("Design", "1"));
+
 			////if (IsInDesignMode)
 			////{
 			////    // Code runs in Blend --> create design time data.
