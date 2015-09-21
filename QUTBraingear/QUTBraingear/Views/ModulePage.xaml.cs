@@ -9,7 +9,9 @@ namespace QUTBraingear
 	{
 		public ModulePage ()
 		{
-
+			InitializeComponent ();
+			base.Init ();
+			//BindingContext = App.Locator.NoteList;
 		}
 	}
 }

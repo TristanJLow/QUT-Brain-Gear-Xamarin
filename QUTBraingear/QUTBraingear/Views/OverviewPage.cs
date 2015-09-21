@@ -16,8 +16,11 @@ namespace QUTBraingear
 
 		}
 
-
-
+		void OnModuleTap(object sender, EventArgs args) {
+				Navigation.PushAsync(new ModulePage());
+		}
+	
 	}
+
 }
 
