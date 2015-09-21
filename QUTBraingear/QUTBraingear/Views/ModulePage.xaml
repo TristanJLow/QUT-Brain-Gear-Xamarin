@@ -2,7 +2,28 @@
 <BaseView xmlns="http://xamarin.com/schemas/2014/forms" 
 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 x:Class="QUTBraingear.ModulePage">
-	<StackLayout>
-		<Label x:Name="label_moduleVideo" Text="VideoPlaceholder" BackgroundColor="Blue" Font="20" HeightRequest="100" />
-	</StackLayout>
+	<ScrollView>
+		<StackLayout >
+			<Label x:Name="label_moduleVideo" Text="VideoPlaceholder" BackgroundColor="Maroon" Font="20" HeightRequest="250" />
+			<Frame x:Name="frame_moduleInfo"  VerticalOptions="FillAndExpand" OutlineColor="Silver" BackgroundColor="White" >
+				<StackLayout>
+					<Label x:Name="label_moduleTitle" Text="C# 101" TextColor="Black" Font="20" />
+					<Label x:Name="label_moduleDesc" TextColor="Black" Font="14">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam facilisis tempor felis sit amet posuere. Sed vulputate est eget lorem mollis, at efficitur leo pharetra. Praesent eget porttitor tellus. Curabitur elementum, metus in euismod maximus, justo felis venenatis augue, et elementum felis eros eu ante. Morbi iaculis magna eget viverra dignissim. Vivamus fringilla feugiat neque sed efficitur. Quisque sit amet efficitur risus, ac tristique dolor.
+					</Label>
+				</StackLayout>
+			</Frame>
+			<Frame x:Name="frame_moduleSkills"  VerticalOptions="FillAndExpand" OutlineColor="Silver" BackgroundColor="White" >
+				<StackLayout>
+					<Label x:Name="label_skill1" Text="Programming" TextColor="Black" Font="20" />
+					<Label x:Name="label_skill2" Text="C#" TextColor="Black" Font="20" />
+				</StackLayout>
+			</Frame>
+			<Frame x:Name="frame_moduleComments"  VerticalOptions="FillAndExpand" OutlineColor="Silver" BackgroundColor="White" >
+				<StackLayout>
+					<Label x:Name="label_commentTitle" Text="Comments" TextColor="Black" Font="20" />
+				</StackLayout>
+			</Frame>
+		</StackLayout>
+	</ScrollView>
 </BaseView>

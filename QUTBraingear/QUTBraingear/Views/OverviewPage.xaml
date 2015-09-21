@@ -3,7 +3,11 @@
 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 x:Class="QUTBraingear.OverviewPage">
 	<StackLayout>
-			    <Label x:Name="label_videoPlaceholder" Text="VideoPlaceholder" BackgroundColor="Blue" Font="20" HeightRequest="100" />
+			    <Label x:Name="label_videoPlaceholder" Text="VideoPlaceholder" BackgroundColor="Blue" Font="20" HeightRequest="100" >
+			    	<Label.GestureRecognizers>
+				        <TapGestureRecognizer Tapped="OnModuleTap" />
+					</Label.GestureRecognizers>
+			    </Label>
 			    <Frame x:Name="frame_liveqa"  HeightRequest="120" OutlineColor="Silver" BackgroundColor="White" >
 						<ListView x:Name="listview_liveqa" ItemsSource="{Binding QAList, Mode=OneWay}">
 						<ListView.Header>

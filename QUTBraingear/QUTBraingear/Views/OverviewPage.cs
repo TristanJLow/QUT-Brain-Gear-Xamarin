@@ -14,8 +14,11 @@ namespace QUTBraingear
 			BindingContext = App.Locator.overview;
 		}
 
-
-
+		void OnModuleTap(object sender, EventArgs args) {
+				Navigation.PushAsync(new ModulePage());
+		}
+	
 	}
+
 }
 

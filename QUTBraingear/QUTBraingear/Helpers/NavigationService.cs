@@ -64,7 +64,7 @@ namespace QUTBraingear
 
 				}
 				else
-					_navigation.PopAsync();
+					await _navigation.PopAsync();
 
 			}
 
