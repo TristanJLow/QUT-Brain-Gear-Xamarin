@@ -52,7 +52,7 @@ namespace QUTBraingear.Data.ViewModel
 			
 		}
 
-		public OverviewPageViewModel NoteList
+		public OverviewPageViewModel overview
 		{
 			get
 			{
