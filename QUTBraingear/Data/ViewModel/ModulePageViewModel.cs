@@ -25,14 +25,14 @@ namespace QUTBraingear.Data.ViewModel
 		private ObservableCollection<Skills> skillList = new ObservableCollection<Skills>();
 
 
-		/*public ObservableCollection<Skills> SkillList {
+		public ObservableCollection<Skills> SkillList {
 			get { return skillList; }
 			set {
 				if (value != null && value != skillList) {
 					skillList = value;
 				}
 			}
-		}*/
+		}
 
 		/// <summary>
 		/// Initializes a new instance of the MainViewModel class.
