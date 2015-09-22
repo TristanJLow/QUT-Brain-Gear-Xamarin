@@ -22,6 +22,17 @@ namespace QUTBraingear.Data.ViewModel
 	public class ModulePageViewModel : ViewModelBase
 	{
 		private IMyNavigationService navigationService;
+		private ObservableCollection<Skills> skillList = new ObservableCollection<Skills>();
+
+
+		/*public ObservableCollection<Skills> SkillList {
+			get { return skillList; }
+			set {
+				if (value != null && value != skillList) {
+					skillList = value;
+				}
+			}
+		}*/
 
 		/// <summary>
 		/// Initializes a new instance of the MainViewModel class.
@@ -29,6 +40,10 @@ namespace QUTBraingear.Data.ViewModel
 		public ModulePageViewModel(IMyNavigationService navigationService)
 		{
 			this.navigationService = navigationService;
+			SkillList.Add (new Skills ("Xamarin", "20"));
+			SkillList.Add (new Skills ("C#", "15"));
+			SkillList.Add (new Skills ("Parallel Programming", "5"));
+			SkillList.Add (new Skills ("Design", "1"));
 		}
 
 	}

@@ -24,6 +24,8 @@ namespace QUTBraingear.Data.ViewModel
 	/// </summary>
 	public class ViewModelLocator
 	{
+		public const string ModulePagePageKey = "ModulePage";
+
 		public const string OverviewPagePageKey = "OverviewPage";
 		/// <summary>
 		/// Initializes a new instance of the ViewModelLocator class.
@@ -49,6 +51,13 @@ namespace QUTBraingear.Data.ViewModel
 						SimpleIoc.Default.GetInstance<IMyNavigationService>()
 					);
 				});
+
+			SimpleIoc.Default.Register<ModulePageViewModel>(() => 
+				{
+					return new ModulePageViewModel(
+						SimpleIoc.Default.GetInstance<IMyNavigationService>()
+					);
+				});
 			
 		}
 
@@ -60,6 +69,13 @@ namespace QUTBraingear.Data.ViewModel
 			}
 		}
 
+		public ModulePageViewModel module
+		{
+			get
+			{
+				return ServiceLocator.Current.GetInstance<ModulePageViewModel>();
+			}
+		}
 
 		public static void Cleanup()
 		{

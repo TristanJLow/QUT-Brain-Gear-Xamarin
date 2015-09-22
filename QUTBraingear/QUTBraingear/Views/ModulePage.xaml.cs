@@ -11,7 +11,7 @@ namespace QUTBraingear
 		{
 			InitializeComponent ();
 			base.Init ();
-			//BindingContext = App.Locator.NoteList;
+			BindingContext = App.Locator.module;
 		}
 	}
 }

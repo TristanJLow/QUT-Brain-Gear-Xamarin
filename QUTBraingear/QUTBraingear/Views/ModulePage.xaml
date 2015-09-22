@@ -3,7 +3,7 @@
 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 x:Class="QUTBraingear.ModulePage">
 	<ScrollView>
-		<StackLayout >
+		<StackLayout>
 			<Label x:Name="label_moduleVideo" Text="VideoPlaceholder" BackgroundColor="Maroon" Font="20" HeightRequest="250" />
 			<Frame x:Name="frame_moduleInfo"  VerticalOptions="FillAndExpand" OutlineColor="Silver" BackgroundColor="White" >
 				<StackLayout>
@@ -14,10 +14,15 @@ x:Class="QUTBraingear.ModulePage">
 				</StackLayout>
 			</Frame>
 			<Frame x:Name="frame_moduleSkills"  VerticalOptions="FillAndExpand" OutlineColor="Silver" BackgroundColor="White" >
-				<StackLayout>
-					<Label x:Name="label_skill1" Text="Programming" TextColor="Black" Font="20" />
-					<Label x:Name="label_skill2" Text="C#" TextColor="Black" Font="20" />
-				</StackLayout>
+				<ListView x:Name="listview_skills" ItemsSource="{Binding SkillList}">
+					<ListView.ItemTemplate>
+						<DataTemplate>
+							<ViewCell>
+									<Label x:Name="label_skill1" Text="{Binding skillTitle}" TextColor="Black" Font="20" />
+							</ViewCell>
+						</DataTemplate>
+					</ListView.ItemTemplate>
+				</ListView>
 			</Frame>
 			<Frame x:Name="frame_moduleComments"  VerticalOptions="FillAndExpand" OutlineColor="Silver" BackgroundColor="White" >
 				<StackLayout>
