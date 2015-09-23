@@ -4,7 +4,8 @@ xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 x:Class="QUTBraingear.ModulePage">
 	<ScrollView>
 		<StackLayout>
-			<Label x:Name="label_moduleVideo" Text="VideoPlaceholder" BackgroundColor="Maroon" Font="20" HeightRequest="250" />
+			<WebView x:Name="moduleVideo" Source="https://www.youtube.com/embed/bFdP3_TF7Ks" HeightRequest="250">
+			</WebView>
 			<Frame x:Name="frame_moduleInfo" OutlineColor="Silver" BackgroundColor="White" >
 				<StackLayout VerticalOptions="FillAndExpand">
 					<Label x:Name="label_moduleTitle" Text="C# 101" TextColor="Black" Font="20" />
