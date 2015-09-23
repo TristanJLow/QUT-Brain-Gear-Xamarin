@@ -40,9 +40,8 @@ namespace QUTBraingear.Data.ViewModel
 		public ModulePageViewModel(IMyNavigationService navigationService)
 		{
 			this.navigationService = navigationService;
-			SkillList.Add (new Skills ("Programming", "1"));
+			SkillList.Add (new Skills ("Programming", "2"));
 			SkillList.Add (new Skills ("C#", "1"));
 		}
-
 	}
 }
