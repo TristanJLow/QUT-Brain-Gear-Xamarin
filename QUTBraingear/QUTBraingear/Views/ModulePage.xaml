@@ -4,7 +4,7 @@ xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 x:Class="QUTBraingear.ModulePage">
 	<ScrollView>
 		<StackLayout>
-			<WebView x:Name="moduleVideo" Source="https://www.youtube.com/embed/bFdP3_TF7Ks" HeightRequest="250">
+			<WebView x:Name="moduleVideo" Source="{Binding moduleVideo}" HeightRequest="250">
 			</WebView>
 			<Frame x:Name="frame_moduleInfo" OutlineColor="Silver" BackgroundColor="White" >
 				<StackLayout VerticalOptions="FillAndExpand">
@@ -16,7 +16,7 @@ x:Class="QUTBraingear.ModulePage">
 			</Frame>
 			<Frame x:Name="frame_moduleSkills" Padding="20" OutlineColor="Silver" BackgroundColor="White" >
 				<StackLayout VerticalOptions="FillAndExpand" >
-					<ListView x:Name="listview_skills" ItemsSource="{Binding SkillList, Mode=OneWay}" HeightRequest="80">
+					<ListView x:Name="listview_skills" ItemsSource="{Binding ModuleSkills, Mode=OneWay}" HeightRequest="80">
 						<ListView.ItemTemplate>
 							<DataTemplate>
 								<ViewCell>

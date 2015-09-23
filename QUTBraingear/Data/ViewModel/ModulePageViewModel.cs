@@ -22,26 +22,26 @@ namespace QUTBraingear.Data.ViewModel
 	public class ModulePageViewModel : ViewModelBase
 	{
 		private IMyNavigationService navigationService;
-		private ObservableCollection<Skills> skillList = new ObservableCollection<Skills>();
-
-
-		public ObservableCollection<Skills> SkillList {
-			get { return skillList; }
-			set {
-				if (value != null && value != skillList) {
-					skillList = value;
-				}
-			}
-		}
+		private Module module;
 
 		/// <summary>
 		/// Initializes a new instance of the MainViewModel class.
 		/// </summary>
-		public ModulePageViewModel(IMyNavigationService navigationService)
-		{
+		public ModulePageViewModel(IMyNavigationService navigationService) {
 			this.navigationService = navigationService;
-			SkillList.Add (new Skills ("Programming", "2"));
-			SkillList.Add (new Skills ("C#", "1"));
+			module = new Module (1);
+		}
+
+		public string moduleVideo {
+			get {
+				return module.Video;
+			}
+		}
+
+		public ObservableCollection<Skills> ModuleSkills {
+			get {
+				return module.Skills;
+			}
 		}
 	}
 }
