@@ -8,11 +8,11 @@ namespace QUTBraingear.Data
 		private int moduleID;
 		private string videoURL;
 		private ObservableCollection<Skills> moduleSkills = new ObservableCollection<Skills>();
+		public ObservableCollection<Comment> moduleComments { get; private set; }
 
 		public Module () {
 			moduleID = 0;
 			videoURL = null;
-			moduleSkills = null;
 		}
 
 		public Module (int moduleID) {
@@ -20,6 +20,10 @@ namespace QUTBraingear.Data
 			videoURL = "https://www.youtube.com/embed/bFdP3_TF7Ks";
 			moduleSkills.Add(new Skills ("Programming", "2"));
 			moduleSkills.Add(new Skills("C#","1"));
+			Comment test = new Comment ();
+			test.commentText = "New Test Comment";
+			moduleComments = new ObservableCollection<Comment>();
+			moduleComments.Add (test);
 		}
 
 		public string Video {

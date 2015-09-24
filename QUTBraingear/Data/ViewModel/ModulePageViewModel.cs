@@ -43,5 +43,14 @@ namespace QUTBraingear.Data.ViewModel
 				return module.Skills;
 			}
 		}
+
+		public ObservableCollection<Comment> ModuleComments {
+			get {
+				return module.moduleComments;
+			}
+			/*set {
+				module.Comments.Add (value.ToString());
+			}*/
+		}
 	}
 }

@@ -39,9 +39,20 @@ x:Class="QUTBraingear.ModulePage">
 					</ListView>
 				</StackLayout>
 			</Frame>
-			<Frame x:Name="frame_moduleComments"  VerticalOptions="FillAndExpand" OutlineColor="Silver" BackgroundColor="White" >
-				<StackLayout>
+			<Frame x:Name="frame_moduleComments" OutlineColor="Silver" BackgroundColor="White" >
+				<StackLayout VerticalOptions="FillAndExpand" >
 					<Label x:Name="label_commentTitle" Text="Comments" TextColor="Black" Font="20" />
+					<ListView x:Name="listview_comments" ItemsSource="{Binding ModuleComments}" HeightRequest="80" >
+						<ListView.ItemTemplate>
+							<DataTemplate>
+								<TextCell Text="{Binding commentText}" TextColor ="Black" />
+							</DataTemplate>
+						</ListView.ItemTemplate>
+					</ListView>
+					<Frame Padding="0" VerticalOptions="FillAndExpand" BackgroundColor="Silver" >
+						<Editor VerticalOptions = "FillAndExpand" x:Name ="editor_addComment" HeightRequest="80" />
+					</Frame>
+					<Button x:Name="button_addComment" Text="Add Comment" HorizontalOptions="CenterAndExpand" Command="{Binding ModuleComments(editor_addComment.Text)}" />
 				</StackLayout>
 			</Frame>
 		</StackLayout>
