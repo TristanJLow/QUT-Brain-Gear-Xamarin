@@ -30,7 +30,7 @@ namespace QUTBraingear.Data
 		}
 
 
-		public int InsertOrUpdateNote(QA qa){
+		public int InsertOrUpdateQA(QA qa){
 			return database.Table<QA> ().Where (x => x.qaId == qa.qaId).Any() 
 				? database.Update (qa) : database.Insert (qa);
 		}
