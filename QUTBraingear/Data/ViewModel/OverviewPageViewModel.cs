@@ -22,10 +22,10 @@ namespace QUTBraingear.Data.ViewModel
 	public class OverviewPageViewModel : ViewModelBase
 	{
 		private IMyNavigationService navigationService;
-		private ObservableCollection<QA> qaList = new ObservableCollection<QA>();
+		private List<QA>/*ObservableCollection<QA>*/ qaList = new List<QA>();
 		private ObservableCollection<Skills> skillList = new ObservableCollection<Skills>();
 
-		public ObservableCollection<QA> QAList {
+		public List<QA> QAList {
 			get { return qaList; }
 			set {
 				if (value != null && value != qaList) {
@@ -48,7 +48,11 @@ namespace QUTBraingear.Data.ViewModel
 		public OverviewPageViewModel(IMyNavigationService navigationService)
 		{
 			this.navigationService = navigationService;
-			QAList.Add (new QA ("Xamarin Development", "LIVE"));
+			QADatabase database = new QADatabase ();	
+			//database.InsertOrUpdateNote (new QA ("Xamarin", DateTime.Now.ToString ()));
+
+			//QAList = database.GetAll ();
+			//QAList.Add (new QA ("Xamarin Development", "LIVE"));
 			SkillList.Add (new Skills ("Xamarin", "20"));
 			SkillList.Add (new Skills ("C#", "15"));
 			SkillList.Add (new Skills ("Parallel Programming", "5"));
