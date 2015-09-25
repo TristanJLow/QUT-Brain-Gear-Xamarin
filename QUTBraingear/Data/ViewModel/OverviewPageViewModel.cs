@@ -22,10 +22,10 @@ namespace QUTBraingear.Data.ViewModel
 	public class OverviewPageViewModel : ViewModelBase
 	{
 		private IMyNavigationService navigationService;
-		private ObservableCollection<QA> qaList = new ObservableCollection<QA>();
-		private ObservableCollection<Skills> skillList = new ObservableCollection<Skills>();
+		private List<QA>/*ObservableCollection<QA>*/ qaList = new List<QA>();
+		private List<Skills> skillList = new List<Skills>();
 
-		public ObservableCollection<QA> QAList {
+		public List<QA> QAList {
 			get { return qaList; }
 			set {
 				if (value != null && value != qaList) {
@@ -34,7 +34,7 @@ namespace QUTBraingear.Data.ViewModel
 			}
 		}
 
-		public ObservableCollection<Skills> SkillList {
+		public List<Skills> SkillList {
 			get { return skillList; }
 			set {
 				if (value != null && value != skillList) {
@@ -48,11 +48,20 @@ namespace QUTBraingear.Data.ViewModel
 		public OverviewPageViewModel(IMyNavigationService navigationService)
 		{
 			this.navigationService = navigationService;
-			QAList.Add (new QA ("Xamarin Development", "LIVE"));
-			SkillList.Add (new Skills ("Xamarin", "20"));
+			QADatabase qaDatabase = new QADatabase ();	
+			qaDatabase.InsertOrUpdateQA (new QA ("Xamarin", DateTime.Now.ToString ()));
+
+			QAList = qaDatabase.GetAll ();
+
+			SkillsDatabase skillsDatabase = new SkillsDatabase ();
+			skillsDatabase.InsertOrUpdateSkill (new Skills ("Xamarin", "20"));
+			skillsDatabase.InsertOrUpdateSkill (new Skills ("C#", "10"));
+			skillList = skillsDatabase.GetAll ();
+			//QAList.Add (new QA ("Xamarin Development", "LIVE"));
+			/*SkillList.Add (new Skills ("Xamarin", "20"));
 			SkillList.Add (new Skills ("C#", "15"));
 			SkillList.Add (new Skills ("Parallel Programming", "5"));
-			SkillList.Add (new Skills ("Design", "1"));
+			SkillList.Add (new Skills ("Design", "1"));*/
 
 			////if (IsInDesignMode)
 			////{
