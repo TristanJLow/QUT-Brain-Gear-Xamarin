@@ -49,9 +49,9 @@ namespace QUTBraingear.Data.ViewModel
 		{
 			this.navigationService = navigationService;
 			QADatabase database = new QADatabase ();	
-			//database.InsertOrUpdateNote (new QA ("Xamarin", DateTime.Now.ToString ()));
+			database.InsertOrUpdateNote (new QA ("Xamarin", DateTime.Now.ToString ()));
 
-			//QAList = database.GetAll ();
+			QAList = database.GetAll ();
 			//QAList.Add (new QA ("Xamarin Development", "LIVE"));
 			SkillList.Add (new Skills ("Xamarin", "20"));
 			SkillList.Add (new Skills ("C#", "15"));

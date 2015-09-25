@@ -17,13 +17,13 @@ namespace QUTBraingear.Data
 		public QADatabase ()
 		{
 			database = DependencyService.Get<ISqlite> ().GetConnection ();
-			/*if (database.TableMappings.All(t => t.MappedType.Name != typeof(QA).Name)) {
+			if (database.TableMappings.All(t => t.MappedType.Name != typeof(QA).Name)) {
 				database.CreateTable<QA> ();
 				database.Commit ();
-			}*/
+			}
 		}
 
-		/*public List<QA> GetAll(){
+		public List<QA> GetAll(){
 			var items = database.Table<QA> ().ToList<QA>();
 
 			return items;
@@ -33,7 +33,7 @@ namespace QUTBraingear.Data
 		public int InsertOrUpdateNote(QA qa){
 			return database.Table<QA> ().Where (x => x.qaId == qa.qaId).Any() 
 				? database.Update (qa) : database.Insert (qa);
-		}*/
+		}
 
 
 	}
