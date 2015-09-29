@@ -29,8 +29,18 @@ x:Class="QUTBraingear.ModulePage">
 										</Grid.ColumnDefinitions>
 										<Label Text="{Binding skillTitle}" TextColor ="Black" Font="20"/>
 										<RelativeLayout Grid.Column="1" HorizontalOptions="End">
-											<Image Source="skill_backing.png" />
-											<Label Text="{Binding skillPoints}" TextColor ="White" Font="20" XAlign="Center" TranslationX="9"/>
+											<Image x:Name="skillBG" Source="skill_backing.png"
+												RelativeLayout.XConstraint=
+													"{ConstraintExpression Type=RelativeToParent, 
+														Property=Width,
+														Factor=0.5}"
+											/>
+											<Label Text="{Binding skillPoints}" TextColor ="White" Font="20" TranslationX="9"
+												RelativeLayout.XConstraint=
+													"{ConstraintExpression Type=RelativeToParent, 
+														Property=Width,
+														Factor=0.5}"
+											/>
 										</RelativeLayout>
 									</Grid>
 								</ViewCell>
