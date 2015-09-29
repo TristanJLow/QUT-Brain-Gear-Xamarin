@@ -16,7 +16,9 @@ namespace QUTBrainGear
 			menuPage.Menu.ItemSelected += (sender, e) => NavigateTo (e.SelectedItem as MenuItem);
 
 			Master = menuPage;
-			Detail = new NavigationPage (new OverviewPage ());
+			Detail = new NavigationPage (new OverviewPage ()) {
+				BarBackgroundColor = Color.FromHex ("003f77")
+			};
 		}
 
 		void NavigateTo (MenuItem menu)

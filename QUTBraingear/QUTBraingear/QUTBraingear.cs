@@ -36,7 +36,6 @@ namespace QUTBraingear
 			var navPage = new NavigationPage (new OverviewPage ());
 			navPage.BarBackgroundColor = Color.FromHex("003f77");
 			nav.Initialize (navPage);
-			//return navPage;
 			return new RootPage ();
 		}
 		protected override void OnStart ()
