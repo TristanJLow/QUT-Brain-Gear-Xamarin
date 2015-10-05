@@ -8,33 +8,39 @@ x:Class="QUTBraingear.OverviewPage">
 				        <TapGestureRecognizer Tapped="OnModuleTap" />
 					</Label.GestureRecognizers>
 			    </Label>
+									
 			    <Frame x:Name="frame_liveqa"  HeightRequest="120" OutlineColor="Silver" BackgroundColor="White" >
-						<ListView x:Name="listview_liveqa" ItemsSource="{Binding QAList, Mode=OneWay}">
-						<ListView.Header>
-							<Label x:Name="label_qaSection" FontSize="Large" TextColor="Black" Text="Live Questions and Answers" />
-
-						</ListView.Header>
-							<ListView.ItemTemplate>
-								<DataTemplate>
-									<ViewCell>
-										<Grid >
+			    	<ScrollView Orientation="Horizontal"> 
+										<Grid HorizontalOptions="Start">
 											<Grid.RowDefinitions>
-												<RowDefinition Height="1*"/>
-												<RowDefinition Height="1*"/>
+												<RowDefinition Height="12"/>
 											</Grid.RowDefinitions>
 											<Grid.ColumnDefinitions>
-												<ColumnDefinition Width="2*"/>
-												<ColumnDefinition Width="1*"/>
+												<ColumnDefinition Width="200"/>
+												<ColumnDefinition Width="200"/>
+												<ColumnDefinition Width="200"/>
+												<ColumnDefinition Width="200"/>
+
 											</Grid.ColumnDefinitions>
-											<Label Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding qaTitle}" x:Name="qaTitle" TextColor ="Black"/>
-											<Frame Grid.Row="1" Grid.Column="2" OutlineColor="Black" BackgroundColor="Red" Padding="0">
-												<Label XAlign="Center"  Text="{Binding dateOccurs}" TextColor ="White"/>
-											</Frame>
+											<RelativeLayout Grid.Column="0" Grid.Row="1" Padding="0">
+
+													<Image Source="http://img1.wikia.nocookie.net/__cb20141001223538/camphalfbloodroleplay/images/0/0b/Youtube-play-button-png-transparent.png">
+														<Image.GestureRecognizers>
+															<TapGestureRecognizer Tapped="OnModuleTap" />
+														</Image.GestureRecognizers>
+													</Image>
+													<Label Text="test1" TextColor ="White" TranslationX="60" TranslationY="75">
+													<Label.GestureRecognizers>
+														<TapGestureRecognizer Tapped="OnModuleTap" />
+													</Label.GestureRecognizers>
+													</Label>
+											</RelativeLayout>
+
+											<Label Grid.Row="1" Grid.Column="1" Text="text2" TextColor ="Black"/>
+											<Label Grid.Row="1" Grid.Column="2" Text="text3" TextColor ="Black"/>
+											<Label Grid.Row="1" Grid.Column="3" Text="text4" TextColor ="Black"/>
 										</Grid>
-									</ViewCell>
-								</DataTemplate>
-							</ListView.ItemTemplate>
-						</ListView>
+						</ScrollView>			
 				</Frame>
 				<Frame x:Name="frame_skills" Padding="20"  HeightRequest="150" OutlineColor="Silver" BackgroundColor="White" >
 						<ListView x:Name="listview_skills" ItemsSource="{Binding SkillList, Mode=OneWay}">

@@ -24,12 +24,22 @@ namespace QUTBraingear.Data.ViewModel
 		private IMyNavigationService navigationService;
 		private List<QA>/*ObservableCollection<QA>*/ qaList = new List<QA>();
 		private List<Skills> skillList = new List<Skills>();
+		private List<String> recentVideos = new List<String> ();
 
 		public List<QA> QAList {
 			get { return qaList; }
 			set {
 				if (value != null && value != qaList) {
 					qaList = value;
+				}
+			}
+		}
+
+		public List<String> RecentVideos {
+			get { return recentVideos; }
+			set {
+				if (value != null && value != recentVideos) {
+					recentVideos = value;
 				}
 			}
 		}
@@ -57,6 +67,9 @@ namespace QUTBraingear.Data.ViewModel
 			skillsDatabase.InsertOrUpdateSkill (new Skills ("Xamarin", "20"));
 			skillsDatabase.InsertOrUpdateSkill (new Skills ("C#", "10"));
 			skillList = skillsDatabase.GetAll ();
+
+			RecentVideos.Add ("Testing 1");
+			RecentVideos.Add ("Testing 2");
 			//QAList.Add (new QA ("Xamarin Development", "LIVE"));
 			/*SkillList.Add (new Skills ("Xamarin", "20"));
 			SkillList.Add (new Skills ("C#", "15"));
