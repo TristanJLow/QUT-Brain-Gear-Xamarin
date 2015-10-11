@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Xamarin.Forms;
 using QUTBraingear.Data.ViewModel;
+using QUTBrainGear;
 
 namespace QUTBraingear
 {
@@ -15,7 +16,7 @@ namespace QUTBraingear
 		}
 
 		void OnModuleTap(object sender, EventArgs args) {
-				Navigation.PushAsync(new ModulePage());
+			((MasterDetailPage)Parent).Detail = new ModulePage ();
 		}
 	
 	}
