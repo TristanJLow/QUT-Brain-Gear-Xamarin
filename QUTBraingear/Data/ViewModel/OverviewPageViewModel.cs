@@ -26,6 +26,10 @@ namespace QUTBraingear.Data.ViewModel
 		private List<Skills> skillList = new List<Skills>();
 		private List<String> recentVideos = new List<String> ();
 
+		private String recentVideo1;
+		private String recentVideo2;
+		private String recentVideo3;
+
 		public List<QA> QAList {
 			get { return qaList; }
 			set {
@@ -52,6 +56,34 @@ namespace QUTBraingear.Data.ViewModel
 				}
 			}
 		}
+
+		public string FirstVideo {
+			get { return recentVideo1; }
+			set {
+				if (value != null && value != recentVideo1) {
+					recentVideo1 = value;
+				}
+			}
+		}
+
+		public string SecondVideo {
+			get { return recentVideo2; }
+			set {
+				if (value != null && value != recentVideo2) {
+					recentVideo2 = value;
+				}
+			}
+		}
+
+
+		public string ThirdVideo {
+			get { return recentVideo3; }
+			set {
+				if (value != null && value != recentVideo3) {
+					recentVideo3 = value;
+				}
+			}
+		}
 		/// <summary>
 		/// Initializes a new instance of the MainViewModel class.
 		/// </summary>
@@ -70,6 +102,10 @@ namespace QUTBraingear.Data.ViewModel
 
 			RecentVideos.Add ("Testing 1");
 			RecentVideos.Add ("Testing 2");
+			RecentVideos.Add ("Testing 3");
+			FirstVideo = RecentVideos [0];
+			SecondVideo = RecentVideos [1];
+			ThirdVideo = RecentVideos [2];
 			//QAList.Add (new QA ("Xamarin Development", "LIVE"));
 			/*SkillList.Add (new Skills ("Xamarin", "20"));
 			SkillList.Add (new Skills ("C#", "15"));
