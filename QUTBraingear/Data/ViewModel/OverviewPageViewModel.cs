@@ -24,11 +24,11 @@ namespace QUTBraingear.Data.ViewModel
 		private IMyNavigationService navigationService;
 		private List<QA>/*ObservableCollection<QA>*/ qaList = new List<QA>();
 		private List<Skills> skillList = new List<Skills>();
-		private List<String> recentVideos = new List<String> ();
+		private List<Module> recentVideos = new List<Module> ();
 
-		private String recentVideo1;
-		private String recentVideo2;
-		private String recentVideo3;
+		/*private Module recentVideo1;
+		private Module recentVideo2;
+		private Module recentVideo3;*/
 
 		public List<QA> QAList {
 			get { return qaList; }
@@ -39,7 +39,7 @@ namespace QUTBraingear.Data.ViewModel
 			}
 		}
 
-		public List<String> RecentVideos {
+		public List<Module> RecentVideos {
 			get { return recentVideos; }
 			set {
 				if (value != null && value != recentVideos) {
@@ -58,31 +58,18 @@ namespace QUTBraingear.Data.ViewModel
 		}
 
 		public string FirstVideo {
-			get { return recentVideo1; }
-			set {
-				if (value != null && value != recentVideo1) {
-					recentVideo1 = value;
-				}
-			}
+			get { return recentVideos[0].Title; }
 		}
 
 		public string SecondVideo {
-			get { return recentVideo2; }
-			set {
-				if (value != null && value != recentVideo2) {
-					recentVideo2 = value;
-				}
-			}
+			get { return recentVideos[1].Title; }
+
 		}
 
 
 		public string ThirdVideo {
-			get { return recentVideo3; }
-			set {
-				if (value != null && value != recentVideo3) {
-					recentVideo3 = value;
-				}
-			}
+			get { return recentVideos[2].Title; }
+
 		}
 		/// <summary>
 		/// Initializes a new instance of the MainViewModel class.
@@ -99,13 +86,18 @@ namespace QUTBraingear.Data.ViewModel
 			skillsDatabase.InsertOrUpdateSkill (new Skills ("Xamarin", "20"));
 			skillsDatabase.InsertOrUpdateSkill (new Skills ("C#", "10"));
 			skillList = skillsDatabase.GetAll ();
-
-			RecentVideos.Add ("Testing 1");
-			RecentVideos.Add ("Testing 2");
-			RecentVideos.Add ("Testing 3");
-			FirstVideo = RecentVideos [0];
+			Module recent1 = new Module (1);
+			Module recent2 = new Module (2);
+			Module recent3 = new Module(3);
+			recent3.Video = "hon3";
+			recent2.Video = "hon2";
+			recent1.Video = "hon1";
+			RecentVideos.Add (recent1);
+			RecentVideos.Add (recent2);
+			RecentVideos.Add (recent3);
+			/*FirstVideo = RecentVideos [0];
 			SecondVideo = RecentVideos [1];
-			ThirdVideo = RecentVideos [2];
+			ThirdVideo = RecentVideos [2];*/
 			//QAList.Add (new QA ("Xamarin Development", "LIVE"));
 			/*SkillList.Add (new Skills ("Xamarin", "20"));
 			SkillList.Add (new Skills ("C#", "15"));
