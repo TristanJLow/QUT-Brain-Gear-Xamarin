@@ -4,7 +4,7 @@ xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 x:Class="QUTBraingear.ModulePage">
 	<ScrollView>
 		<StackLayout>
-			<WebView x:Name="moduleVideo" Source="{Binding moduleVideo}" HeightRequest="250">
+			<WebView x:Name="moduleVideo" Source="{Binding ModuleVideo}" HeightRequest="250">
 			</WebView>
 			<Frame x:Name="frame_moduleInfo" OutlineColor="Silver" BackgroundColor="White" >
 				<StackLayout VerticalOptions="FillAndExpand">
@@ -51,18 +51,37 @@ x:Class="QUTBraingear.ModulePage">
 			</Frame>
 			<Frame x:Name="frame_moduleComments" OutlineColor="Silver" BackgroundColor="White" >
 				<StackLayout VerticalOptions="FillAndExpand" >
-					<Label x:Name="label_commentTitle" Text="Comments" TextColor="Black" Font="20" />
-					<ListView x:Name="listview_comments" ItemsSource="{Binding ModuleComments}" HeightRequest="80" >
+					<ListView x:Name="listview_comments" ItemsSource="{Binding ModuleComments}" HeightRequest="{Binding ListHeight}" SeparatorColor="Black" HasUnevenRows="true" >
+						<ListView.Header>
+							<StackLayout>
+						        <Label Text="Comments" TextColor="Black" Font="20" />
+						    </StackLayout>
+						</ListView.Header>
 						<ListView.ItemTemplate>
 							<DataTemplate>
-								<TextCell Text="{Binding commentText}" TextColor ="Black" />
+								<ViewCell Height="25">
+									<StackLayout>
+										<Label Text="{Binding commentText}" TextColor="Black" />
+									</StackLayout>
+								</ViewCell>
 							</DataTemplate>
 						</ListView.ItemTemplate>
 					</ListView>
 					<Frame Padding="0" VerticalOptions="FillAndExpand" BackgroundColor="Silver" >
-						<Editor VerticalOptions = "FillAndExpand" x:Name ="editor_addComment" HeightRequest="80" />
+						<Editor VerticalOptions = "FillAndExpand" x:Name ="editor_addComment" HeightRequest="80" Text="{Binding AddComment}" />
 					</Frame>
-					<Button x:Name="button_addComment" Text="Add Comment" HorizontalOptions="CenterAndExpand" Command="{Binding ModuleComments(editor_addComment.Text)}" />
+					<Button x:Name="button_addComment" Text="Add Comment" HorizontalOptions="CenterAndExpand" Command="{Binding AddCommentsCommand}" />
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*"/>
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*"/>
+							<ColumnDefinition Width="*"/>
+						</Grid.ColumnDefinitions>
+						<Button Grid.Column="0" x:Name="button_wiki" Text="Wiki" />
+						<Button Grid.Column="1" x:Name="button_quiz" Text="Quiz" />
+					</Grid>
 				</StackLayout>
 			</Frame>
 		</StackLayout>

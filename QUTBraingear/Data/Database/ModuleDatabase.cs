@@ -17,18 +17,31 @@ namespace QUTBraingear.Data
 				database.CreateTable<Module> ();
 				database.Commit ();
 			}
+			if (database.TableMappings.All(t => t.MappedType.Name != typeof(Comment).Name)) {
+				database.CreateTable<Comment> ();
+				database.Commit ();
+			}
 		}
 
 		public List<Module> GetAll(){
 			var items = database.Table<Module> ().ToList<Module>();
+			return items;
+		}
 
+		public List<Comment> GetModuleComments(int moduleId){
+			var items = database.Table<Comment> ().Where(x => x.moduleId == moduleId).ToList();
 			return items;
 		}
 
 
-		public int InsertOrUpdateSkill(Module modules){
+		public int InsertOrUpdateModules(Module modules){
 			return database.Table<Module> ().Where (x => x.moduleID == modules.moduleID).Any() 
 				? database.Update (modules) : database.Insert (modules);
+		}
+
+		public int InsertOrUpdateComments(Comment comments){
+			return database.Table<Comment> ().Where (x => x.moduleId == comments.moduleId && x.commentId == comments.commentId).Any() 
+				? database.Update (comments) : database.Insert (comments);
 		}
 	}
 }

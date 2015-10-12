@@ -22,19 +22,38 @@ namespace QUTBraingear.Data.ViewModel
 	public class ModulePageViewModel : ViewModelBase
 	{
 		private IMyNavigationService navigationService;
+		public ICommand AddCommentsCommand { get; private set;}
 		private Module module;
+		public string AddComment { get; set; }
 
 		/// <summary>
 		/// Initializes a new instance of the MainViewModel class.
 		/// </summary>
 		public ModulePageViewModel(IMyNavigationService navigationService) {
 			this.navigationService = navigationService;
-			module = new Module (1);
+			module = new Module ();
+			var database = new ModuleDatabase();
+			ObservableCollection<Comment> storedComments = new ObservableCollection<Comment>(database.GetModuleComments(ModuleId));
+			module.moduleComments = storedComments;
+			AddCommentsCommand = new Command (() => {
+				var newComment = new Comment(ModuleId, AddComment);
+				database.InsertOrUpdateComments(newComment);
+				module.moduleComments.Add(newComment);
+				AddComment = null;
+				RaisePropertyChanged (() => AddComment);
+				RaisePropertyChanged (() => ListHeight);
+			});
 		}
 
-		public string moduleVideo {
+		public int ModuleId {
 			get {
-				return module.Video;
+				return module.moduleID;
+			}
+		}
+
+		public string ModuleVideo {
+			get {
+				return module.videoURL;
 			}
 		}
 
@@ -48,9 +67,14 @@ namespace QUTBraingear.Data.ViewModel
 			get {
 				return module.moduleComments;
 			}
-			/*set {
-				module.Comments.Add (value.ToString());
-			}*/
+		}
+
+		public int ListHeight {
+			get {
+				var objects = module.moduleComments.Count;
+				var height = (objects * 25) + 40;
+				return height;
+			}
 		}
 	}
 }
