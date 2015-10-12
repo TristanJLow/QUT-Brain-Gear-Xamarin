@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using SQLite.Net.Attributes;
 using QUTBraingear.Data;
 
 namespace QUTBraingear.Data
 {
 	public class Module {
-		[PrimaryKey, AutoIncrement]
-		public int moduleID { get; set; }
+		private int moduleID;
 		private string videoURL;
+		private string moduleTitle;
 		private ObservableCollection<Skills> moduleSkills = new ObservableCollection<Skills>();
 		public ObservableCollection<Comment> moduleComments { get; private set; }
 
@@ -18,6 +17,8 @@ namespace QUTBraingear.Data
 		}
 
 		public Module (int moduleID) {
+			moduleID = this.moduleID;
+			moduleTitle = "Testing title";
 			videoURL = "https://www.youtube.com/embed/bFdP3_TF7Ks";
 			moduleSkills.Add(new Skills ("Programming", "2"));
 			moduleSkills.Add(new Skills("C#","1"));
@@ -30,6 +31,18 @@ namespace QUTBraingear.Data
 		public string Video {
 			get {
 				return videoURL;
+			}
+			set {
+				videoURL = value;
+			}
+		}
+
+		public string Title {
+			get {
+				return moduleTitle;
+			}
+			set {
+				moduleTitle = value;
 			}
 		}
 
