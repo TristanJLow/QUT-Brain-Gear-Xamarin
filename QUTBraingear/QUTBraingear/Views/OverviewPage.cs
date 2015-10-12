@@ -18,28 +18,36 @@ namespace QUTBraingear
 			//var imageSender = (Image)sender;
 
 			//label_text1.Text = imageSender.Id.ToString();
-			Navigation.PushAsync(new ModulePage());
+			//Navigation.PushAsync(new ModulePage());
+			((MasterDetailPage)Parent).Detail = new ModulePage ();
+
 		}
 
 		void Recent1(object sender, EventArgs args) {
 			//var imageSender = (Image)sender;
 
 			//label_text1.Text = imageSender.Id.ToString();
-			Navigation.PushAsync(new ModulePage());
+			((MasterDetailPage)Parent).Detail = new ModulePage ();
+
+			//Navigation.PushAsync(new ModulePage());
 		}
 
 		void Recent2(object sender, EventArgs args) {
 			//var imageSender = (Image)sender;
 
 			//label_text1.Text = imageSender.Id.ToString();
-			Navigation.PushAsync(new ModulePage());
+			//Navigation.PushAsync(new ModulePage());
+			((MasterDetailPage)Parent).Detail = new ModulePage ();
+
 		}
 
 		void Recent3(object sender, EventArgs args) {
 			//var imageSender = (Image)sender;
 
 			//label_text1.Text = imageSender.Id.ToString();
-			Navigation.PushAsync(new ModulePage());
+			//Navigation.PushAsync(new ModulePage());
+			((MasterDetailPage)Parent).Detail = new ModulePage ();
+
 		}
 	
 	}
