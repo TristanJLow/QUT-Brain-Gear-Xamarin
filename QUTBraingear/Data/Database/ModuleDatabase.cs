@@ -33,6 +33,10 @@ namespace QUTBraingear.Data
 			return items;
 		}
 
+		public Module GetModule(int moduleId) {
+			return database.Table<Module> ().Where (x => x.moduleID == moduleId).First();
+		}
+
 
 		public int InsertOrUpdateModules(Module modules){
 			return database.Table<Module> ().Where (x => x.moduleID == modules.moduleID).Any() 

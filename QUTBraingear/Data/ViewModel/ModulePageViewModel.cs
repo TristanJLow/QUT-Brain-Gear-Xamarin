@@ -31,8 +31,8 @@ namespace QUTBraingear.Data.ViewModel
 		/// </summary>
 		public ModulePageViewModel(IMyNavigationService navigationService) {
 			this.navigationService = navigationService;
-			module = new Module ();
 			var database = new ModuleDatabase();
+			module = database.GetModule(1);
 			ObservableCollection<Comment> storedComments = new ObservableCollection<Comment>(database.GetModuleComments(ModuleId));
 			module.moduleComments = storedComments;
 			AddCommentsCommand = new Command (() => {
@@ -59,7 +59,7 @@ namespace QUTBraingear.Data.ViewModel
 
 		public ObservableCollection<Skills> ModuleSkills {
 			get {
-				return module.Skills;
+				return module.moduleSkills;
 			}
 		}
 

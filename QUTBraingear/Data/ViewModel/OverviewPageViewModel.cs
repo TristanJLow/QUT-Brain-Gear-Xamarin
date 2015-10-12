@@ -24,12 +24,26 @@ namespace QUTBraingear.Data.ViewModel
 		private IMyNavigationService navigationService;
 		private List<QA>/*ObservableCollection<QA>*/ qaList = new List<QA>();
 		private List<Skills> skillList = new List<Skills>();
+		private List<Module> recentVideos = new List<Module> ();
+
+		/*private Module recentVideo1;
+		private Module recentVideo2;
+		private Module recentVideo3;*/
 
 		public List<QA> QAList {
 			get { return qaList; }
 			set {
 				if (value != null && value != qaList) {
 					qaList = value;
+				}
+			}
+		}
+
+		public List<Module> RecentVideos {
+			get { return recentVideos; }
+			set {
+				if (value != null && value != recentVideos) {
+					recentVideos = value;
 				}
 			}
 		}
@@ -42,6 +56,21 @@ namespace QUTBraingear.Data.ViewModel
 				}
 			}
 		}
+
+		public string FirstVideo {
+			get { return recentVideos[0].moduleTitle; }
+		}
+
+		public string SecondVideo {
+			get { return recentVideos[1].moduleTitle; }
+
+		}
+
+
+		public string ThirdVideo {
+			get { return recentVideos[2].moduleTitle; }
+
+		}
 		/// <summary>
 		/// Initializes a new instance of the MainViewModel class.
 		/// </summary>
@@ -53,10 +82,26 @@ namespace QUTBraingear.Data.ViewModel
 
 			QAList = qaDatabase.GetAll ();
 
+			var moduleDB = new ModuleDatabase ();
+
 			SkillsDatabase skillsDatabase = new SkillsDatabase ();
 			skillsDatabase.InsertOrUpdateSkill (new Skills ("Xamarin", "20"));
 			skillsDatabase.InsertOrUpdateSkill (new Skills ("C#", "10"));
 			skillList = skillsDatabase.GetAll ();
+			Module recent1 = new Module ();
+			Module recent2 = new Module ();
+			Module recent3 = new Module ();
+			recent3.videoURL = "hon3";
+			recent2.videoURL = "hon2";
+			RecentVideos.Add (recent1);
+			moduleDB.InsertOrUpdateModules (recent1);
+			RecentVideos.Add (recent2);
+			moduleDB.InsertOrUpdateModules (recent2);
+			RecentVideos.Add (recent3);
+			moduleDB.InsertOrUpdateModules (recent3);
+			/*FirstVideo = RecentVideos [0];
+			SecondVideo = RecentVideos [1];
+			ThirdVideo = RecentVideos [2];*/
 			//QAList.Add (new QA ("Xamarin Development", "LIVE"));
 			/*SkillList.Add (new Skills ("Xamarin", "20"));
 			SkillList.Add (new Skills ("C#", "15"));
