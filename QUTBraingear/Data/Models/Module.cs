@@ -28,6 +28,15 @@ namespace QUTBraingear.Data
 			moduleComments.Add (test);
 		}
 
+		public int ID {
+			get {
+				return moduleID;
+			}
+			set {
+				moduleID = value;
+			}
+		}
+
 		public string Video {
 			get {
 				return videoURL;
