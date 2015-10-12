@@ -27,7 +27,7 @@ namespace QUTBraingear.Data
 
 
 		public int InsertOrUpdateSkill(Module modules){
-			return database.Table<Module> ().Where (x => x.ID == modules.ID).Any() 
+			return database.Table<Module> ().Where (x => x.moduleID == modules.moduleID).Any() 
 				? database.Update (modules) : database.Insert (modules);
 		}
 	}
