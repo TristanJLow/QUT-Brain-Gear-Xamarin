@@ -3,115 +3,86 @@
 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 x:Class="QUTBraingear.OverviewPage">
 	<StackLayout>
-			    <Frame x:Name="frame_recentVideos" VerticalOptions="FillAndExpand"  HeightRequest="120" OutlineColor="Silver" BackgroundColor="White" >
-			    	<ScrollView Orientation="Horizontal"> 
-										<Grid HorizontalOptions="Start">
-											<Grid.RowDefinitions>
-												<RowDefinition Height="12"/>
-											</Grid.RowDefinitions>
-											<Grid.ColumnDefinitions>
-												<ColumnDefinition Width="200"/>
-												<ColumnDefinition Width="200"/>
-												<ColumnDefinition Width="200"/>
+	    <Frame x:Name="frame_recentVideos" VerticalOptions="FillAndExpand"  HeightRequest="120" OutlineColor="Silver" BackgroundColor="White" >
+	    <RelativeLayout>
+			<ListView
+				x:Name="MessagesListView"
+				ItemsSource="{Binding RecentVideos}"
+				RowHeight="120"
+				Rotation="270"
+				RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=-50}"
+				RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=-0.5, Constant=60}"
+				RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=100}"
+				RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" 
+			>
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell Tapped="OnModuleTap">
+							<ViewCell.View>
+								<RelativeLayout >
+									<Image Source="play_button.png" Rotation="90" TranslationY="25" />
+									<Label Text="{Binding moduleTitle}" TextColor ="White" TranslationX="-10" TranslationY="50" Rotation="90" />
+								</RelativeLayout>
+							</ViewCell.View>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+			</RelativeLayout>
+		</Frame>
+							
+	    <Frame x:Name="frame_liveqa" VerticalOptions="FillAndExpand"  HeightRequest="120" OutlineColor="Silver" BackgroundColor="White" >
+				<ListView x:Name="listview_liveqa" ItemsSource="{Binding QAList, Mode=OneWay}">
+					<ListView.Header>
+						<Label x:Name="label_qaSection" FontSize="Large" TextColor="Black" Text="Live Questions and Answers" />
+					</ListView.Header>
+					<ListView.ItemTemplate>
+						<DataTemplate>
+							<ViewCell>
+								<Grid >
+									<Grid.RowDefinitions>
+										<RowDefinition Height="1*"/>
+										<RowDefinition Height="1*"/>
+									</Grid.RowDefinitions>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="2*"/>
+										<ColumnDefinition Width="1*"/>
+									</Grid.ColumnDefinitions>
+									<Label Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding qaTitle}" x:Name="qaTitle" TextColor ="Black"/>
+									<Frame Grid.Row="1" Grid.Column="2" OutlineColor="Black" BackgroundColor="Red" Padding="0">
+										<Label XAlign="Center"  Text="{Binding dateOccurs}" TextColor ="White"/>
+									</Frame>
+								</Grid>
+							</ViewCell>
+						</DataTemplate>
+					</ListView.ItemTemplate>
+				</ListView>
+		</Frame>
+		<Frame x:Name="frame_skills" VerticalOptions="FillAndExpand" Padding="20"  HeightRequest="150" OutlineColor="Silver" BackgroundColor="White" >
+			<ListView x:Name="listview_skills" ItemsSource="{Binding SkillList, Mode=OneWay}">
+				<ListView.Header>
+					<Label x:Name="label_skillSection" FontSize="Large" TextColor="Black" Text="Skills" />
+				</ListView.Header>
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<Grid>
+								<Grid.RowDefinitions>
+									<RowDefinition Height="1*"/>
+									<RowDefinition Height="1*"/>
 
-											</Grid.ColumnDefinitions>
-											<RelativeLayout Grid.Column="0" Grid.Row="1" Padding="0">
-
-													<Image Source="http://img1.wikia.nocookie.net/__cb20141001223538/camphalfbloodroleplay/images/0/0b/Youtube-play-button-png-transparent.png">
-														<Image.GestureRecognizers>
-															<TapGestureRecognizer Tapped="Recent1" />
-														</Image.GestureRecognizers>
-													</Image>
-													<Label Text="{Binding FirstVideo}" TextColor ="White" TranslationX="45" TranslationY="75">
-													<Label.GestureRecognizers>
-														<TapGestureRecognizer Tapped="Recent1" />
-													</Label.GestureRecognizers>
-													</Label>
-											</RelativeLayout>
-											<RelativeLayout Grid.Column="1" Grid.Row="1" Padding="1">
-
-													<Image Source="http://img1.wikia.nocookie.net/__cb20141001223538/camphalfbloodroleplay/images/0/0b/Youtube-play-button-png-transparent.png">
-														<Image.GestureRecognizers>
-															<TapGestureRecognizer Tapped="Recent2" />
-														</Image.GestureRecognizers>
-													</Image>
-													<Label Text="{Binding SecondVideo}" TextColor ="White" TranslationX="45" TranslationY="75">
-													<Label.GestureRecognizers>
-														<TapGestureRecognizer Tapped="Recent2" />
-													</Label.GestureRecognizers>
-													</Label>
-											</RelativeLayout>
-											<RelativeLayout Grid.Column="2" Grid.Row="1" Padding="2">
-
-													<Image Source="http://img1.wikia.nocookie.net/__cb20141001223538/camphalfbloodroleplay/images/0/0b/Youtube-play-button-png-transparent.png">
-														<Image.GestureRecognizers>
-															<TapGestureRecognizer Tapped="Recent3" />
-														</Image.GestureRecognizers>
-													</Image>
-													<Label Text="{Binding ThirdVideo}" TextColor ="White" TranslationX="45" TranslationY="75">
-													<Label.GestureRecognizers>
-														<TapGestureRecognizer Tapped="Recent3" />
-													</Label.GestureRecognizers>
-													</Label>
-											</RelativeLayout>
-										</Grid>
-						</ScrollView>			
-				</Frame>
-									
-			    <Frame x:Name="frame_liveqa" VerticalOptions="FillAndExpand"  HeightRequest="120" OutlineColor="Silver" BackgroundColor="White" >
-						<ListView x:Name="listview_liveqa" ItemsSource="{Binding QAList, Mode=OneWay}">
-						<ListView.Header>
-							<Label x:Name="label_qaSection" FontSize="Large" TextColor="Black" Text="Live Questions and Answers" />
-
-						</ListView.Header>
-							<ListView.ItemTemplate>
-								<DataTemplate>
-									<ViewCell>
-										<Grid >
-											<Grid.RowDefinitions>
-												<RowDefinition Height="1*"/>
-												<RowDefinition Height="1*"/>
-											</Grid.RowDefinitions>
-											<Grid.ColumnDefinitions>
-												<ColumnDefinition Width="2*"/>
-												<ColumnDefinition Width="1*"/>
-											</Grid.ColumnDefinitions>
-											<Label Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding qaTitle}" x:Name="qaTitle" TextColor ="Black"/>
-											<Frame Grid.Row="1" Grid.Column="2" OutlineColor="Black" BackgroundColor="Red" Padding="0">
-												<Label XAlign="Center"  Text="{Binding dateOccurs}" TextColor ="White"/>
-											</Frame>
-										</Grid>
-									</ViewCell>
-								</DataTemplate>
-							</ListView.ItemTemplate>
-						</ListView>
-				</Frame>
-				<Frame x:Name="frame_skills" VerticalOptions="FillAndExpand" Padding="20"  HeightRequest="150" OutlineColor="Silver" BackgroundColor="White" >
-						<ListView x:Name="listview_skills" ItemsSource="{Binding SkillList, Mode=OneWay}">
-						<ListView.Header>
-							<Label x:Name="label_skillSection" FontSize="Large" TextColor="Black" Text="Skills" />
-
-						</ListView.Header>
-							<ListView.ItemTemplate>
-								<DataTemplate>
-									<ViewCell>
-										<Grid>
-											<Grid.RowDefinitions>
-												<RowDefinition Height="1*"/>
-												<RowDefinition Height="1*"/>
-
-											</Grid.RowDefinitions>
-											<Grid.ColumnDefinitions>
-												<ColumnDefinition Width="2*"/>
-												<ColumnDefinition Width="1*"/>
-											</Grid.ColumnDefinitions>
-											<Label Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding skillTitle}" TextColor ="Black"/>
-											<Label Grid.Row="1" Grid.Column="2" Text="{Binding skillPoints}" TextColor ="Black"/>
-										</Grid>
-									</ViewCell>
-								</DataTemplate>
-							</ListView.ItemTemplate>
-						</ListView>
-				</Frame>
+								</Grid.RowDefinitions>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="2*"/>
+									<ColumnDefinition Width="1*"/>
+								</Grid.ColumnDefinitions>
+								<Label Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding skillTitle}" TextColor ="Black"/>
+								<Label Grid.Row="1" Grid.Column="2" Text="{Binding skillPoints}" TextColor ="Black"/>
+							</Grid>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</Frame>
 	</StackLayout>
 </BaseView>

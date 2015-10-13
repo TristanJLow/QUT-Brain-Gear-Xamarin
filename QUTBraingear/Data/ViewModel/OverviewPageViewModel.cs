@@ -24,7 +24,7 @@ namespace QUTBraingear.Data.ViewModel
 		private IMyNavigationService navigationService;
 		private List<QA>/*ObservableCollection<QA>*/ qaList = new List<QA>();
 		private List<Skills> skillList = new List<Skills>();
-		private List<Module> recentVideos = new List<Module> ();
+		private ObservableCollection<Module> recentVideos = new ObservableCollection<Module> ();
 
 		/*private Module recentVideo1;
 		private Module recentVideo2;
@@ -39,7 +39,7 @@ namespace QUTBraingear.Data.ViewModel
 			}
 		}
 
-		public List<Module> RecentVideos {
+		public ObservableCollection<Module> RecentVideos {
 			get { return recentVideos; }
 			set {
 				if (value != null && value != recentVideos) {

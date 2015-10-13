@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Xamarin.Forms;
 using QUTBraingear.Data.ViewModel;
+using QUTBraingear.Data;
 
 namespace QUTBraingear
 {
@@ -15,42 +16,10 @@ namespace QUTBraingear
 		}
 
 		void OnModuleTap(object sender, EventArgs args) {
-			//var imageSender = (Image)sender;
-
-			//label_text1.Text = imageSender.Id.ToString();
-			//Navigation.PushAsync(new ModulePage());
+			/*var selectedModule = (Module)sender;
+			selectedModule.moduleID;*/
 			((MasterDetailPage)Parent).Detail = new ModulePage ();
-
 		}
-
-		void Recent1(object sender, EventArgs args) {
-			//var imageSender = (Image)sender;
-
-			//label_text1.Text = imageSender.Id.ToString();
-			((MasterDetailPage)Parent).Detail = new ModulePage ();
-
-
-			//Navigation.PushAsync(new ModulePage());
-		}
-
-		void Recent2(object sender, EventArgs args) {
-			//var imageSender = (Image)sender;
-
-			//label_text1.Text = imageSender.Id.ToString();
-			//Navigation.PushAsync(new ModulePage());
-			((MasterDetailPage)Parent).Detail = new ModulePage ();
-
-		}
-
-		void Recent3(object sender, EventArgs args) {
-			//var imageSender = (Image)sender;
-
-			//label_text1.Text = imageSender.Id.ToString();
-			//Navigation.PushAsync(new ModulePage());
-			((MasterDetailPage)Parent).Detail = new ModulePage ();
-
-		}
-	
 	}
 
 }
