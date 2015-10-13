@@ -22,13 +22,9 @@ namespace QUTBraingear.Data.ViewModel
 	public class OverviewPageViewModel : ViewModelBase
 	{
 		private IMyNavigationService navigationService;
-		private List<QA>/*ObservableCollection<QA>*/ qaList = new List<QA>();
+		private List<QA> qaList = new List<QA>();
 		private List<Skills> skillList = new List<Skills>();
 		private ObservableCollection<Module> recentVideos = new ObservableCollection<Module> ();
-
-		/*private Module recentVideo1;
-		private Module recentVideo2;
-		private Module recentVideo3;*/
 
 		public List<QA> QAList {
 			get { return qaList; }
@@ -56,21 +52,7 @@ namespace QUTBraingear.Data.ViewModel
 				}
 			}
 		}
-
-		public string FirstVideo {
-			get { return recentVideos[0].moduleTitle; }
-		}
-
-		public string SecondVideo {
-			get { return recentVideos[1].moduleTitle; }
-
-		}
-
-
-		public string ThirdVideo {
-			get { return recentVideos[2].moduleTitle; }
-
-		}
+			
 		/// <summary>
 		/// Initializes a new instance of the MainViewModel class.
 		/// </summary>
@@ -99,25 +81,6 @@ namespace QUTBraingear.Data.ViewModel
 			moduleDB.InsertOrUpdateModules (recent2);
 			RecentVideos.Add (recent3);
 			moduleDB.InsertOrUpdateModules (recent3);
-			/*FirstVideo = RecentVideos [0];
-			SecondVideo = RecentVideos [1];
-			ThirdVideo = RecentVideos [2];*/
-			//QAList.Add (new QA ("Xamarin Development", "LIVE"));
-			/*SkillList.Add (new Skills ("Xamarin", "20"));
-			SkillList.Add (new Skills ("C#", "15"));
-			SkillList.Add (new Skills ("Parallel Programming", "5"));
-			SkillList.Add (new Skills ("Design", "1"));*/
-
-			////if (IsInDesignMode)
-			////{
-			////    // Code runs in Blend --> create design time data.
-			////}
-			////else
-			////{
-			////    // Code runs "for real"
-			////}
-
-
 		}
 
 	}

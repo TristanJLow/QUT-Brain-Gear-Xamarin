@@ -25,16 +25,14 @@ namespace QUTBraingear.Data.ViewModel
 		public ICommand AddCommentsCommand { get; private set;}
 		private Module module;
 		public string AddComment { get; set; }
+		private ModuleDatabase database = new ModuleDatabase();
 
 		/// <summary>
 		/// Initializes a new instance of the MainViewModel class.
 		/// </summary>
 		public ModulePageViewModel(IMyNavigationService navigationService) {
 			this.navigationService = navigationService;
-			var database = new ModuleDatabase();
-			module = database.GetModule(1);
-			ObservableCollection<Comment> storedComments = new ObservableCollection<Comment>(database.GetModuleComments(ModuleId));
-			module.moduleComments = storedComments;
+
 			AddCommentsCommand = new Command (() => {
 				var newComment = new Comment(ModuleId, AddComment);
 				database.InsertOrUpdateComments(newComment);
@@ -43,6 +41,12 @@ namespace QUTBraingear.Data.ViewModel
 				RaisePropertyChanged (() => AddComment);
 				RaisePropertyChanged (() => ListHeight);
 			});
+		}
+		public void UpdatePageContent (int selectedModule) {
+			module = database.GetModule(selectedModule);
+
+			ObservableCollection<Comment> storedComments = new ObservableCollection<Comment>(database.GetModuleComments(ModuleId));
+			module.moduleComments = storedComments;
 		}
 
 		public int ModuleId {

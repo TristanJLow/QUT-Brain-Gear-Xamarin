@@ -13,11 +13,12 @@ x:Class="QUTBraingear.OverviewPage">
 				RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=-50}"
 				RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=-0.5, Constant=60}"
 				RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=100}"
-				RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" 
+				RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+				ItemTapped="OnModuleTap"
 			>
 				<ListView.ItemTemplate>
 					<DataTemplate>
-						<ViewCell Tapped="OnModuleTap">
+						<ViewCell>
 							<ViewCell.View>
 								<RelativeLayout >
 									<Image Source="play_button.png" Rotation="90" TranslationY="25" />

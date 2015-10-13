@@ -16,11 +16,11 @@ namespace QUTBraingear
 		}
 
 		void OnModuleTap(object sender, EventArgs args) {
-			/*var selectedModule = (Module)sender;
-			selectedModule.moduleID;*/
-			((MasterDetailPage)Parent).Detail = new ModulePage ();
+			var recentList= (ListView)sender;
+			var selectedModule = (recentList.SelectedItem as Module);
+			var moduleId = selectedModule.moduleID;
+			((MasterDetailPage)Parent).Detail = new ModulePage (moduleId);
 		}
 	}
 
 }
-
