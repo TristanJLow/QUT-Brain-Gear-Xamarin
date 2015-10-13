@@ -70,17 +70,22 @@ namespace QUTBraingear.Data.ViewModel
 			skillsDatabase.InsertOrUpdateSkill (new Skills ("Xamarin", "20"));
 			skillsDatabase.InsertOrUpdateSkill (new Skills ("C#", "10"));
 			skillList = skillsDatabase.GetAll ();
-			Module recent1 = new Module ();
-			Module recent2 = new Module ();
-			Module recent3 = new Module ();
-			recent3.videoURL = "hon3";
-			recent2.videoURL = "hon2";
-			RecentVideos.Add (recent1);
-			moduleDB.InsertOrUpdateModules (recent1);
-			RecentVideos.Add (recent2);
-			moduleDB.InsertOrUpdateModules (recent2);
-			RecentVideos.Add (recent3);
-			moduleDB.InsertOrUpdateModules (recent3);
+
+			var databaseModules = new ObservableCollection<Module>(moduleDB.GetAll ());
+			recentVideos = databaseModules;
+			if (recentVideos.Count < 3) {
+				Module recent1 = new Module ();
+				Module recent2 = new Module ();
+				Module recent3 = new Module ();
+				recent3.videoURL = "hon3";
+				recent2.videoURL = "hon2";
+				RecentVideos.Add (recent1);
+				moduleDB.InsertOrUpdateModules (recent1);
+				RecentVideos.Add (recent2);
+				moduleDB.InsertOrUpdateModules (recent2);
+				RecentVideos.Add (recent3);
+				moduleDB.InsertOrUpdateModules (recent3);
+			};
 		}
 
 	}
