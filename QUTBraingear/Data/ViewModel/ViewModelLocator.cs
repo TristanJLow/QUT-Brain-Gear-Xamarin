@@ -25,8 +25,9 @@ namespace QUTBraingear.Data.ViewModel
 	public class ViewModelLocator
 	{
 		public const string ModulePagePageKey = "ModulePage";
-
 		public const string OverviewPagePageKey = "OverviewPage";
+		public const string ProgressMapPagePageKey = "ProgressMapPage";
+
 		/// <summary>
 		/// Initializes a new instance of the ViewModelLocator class.
 		/// </summary>
@@ -58,6 +59,13 @@ namespace QUTBraingear.Data.ViewModel
 						SimpleIoc.Default.GetInstance<IMyNavigationService>()
 					);
 				});
+
+			SimpleIoc.Default.Register<ProgressMapPageViewModel>(() => 
+				{
+					return new ProgressMapPageViewModel(
+						SimpleIoc.Default.GetInstance<IMyNavigationService>()
+					);
+				});
 			
 		}
 
@@ -74,6 +82,14 @@ namespace QUTBraingear.Data.ViewModel
 			get
 			{
 				return ServiceLocator.Current.GetInstance<ModulePageViewModel>();
+			}
+		}
+
+		public ProgressMapPageViewModel progressMap
+		{
+			get
+			{
+				return ServiceLocator.Current.GetInstance<ProgressMapPageViewModel>();
 			}
 		}
 
