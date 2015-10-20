@@ -25,7 +25,7 @@ namespace QUTBraingear.Data.ViewModel
 		public ICommand AddCommentsCommand { get; private set;}
 		private Module module;
 		public string AddComment { get; set; }
-		private ModuleDatabase database = new ModuleDatabase();
+		private QUTBrainGearDB database = new QUTBrainGearDB();
 
 		/// <summary>
 		/// Initializes a new instance of the MainViewModel class.

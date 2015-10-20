@@ -59,19 +59,16 @@ namespace QUTBraingear.Data.ViewModel
 		public OverviewPageViewModel(IMyNavigationService navigationService)
 		{
 			this.navigationService = navigationService;
-			QADatabase qaDatabase = new QADatabase ();	
-			qaDatabase.InsertOrUpdateQA (new QA ("Xamarin", DateTime.Now.ToString ()));
+			QUTBrainGearDB db = new QUTBrainGearDB ();
+			db.InsertOrUpdateQA (new QA ("Xamarin", DateTime.Now.ToString ()));
 
-			QAList = qaDatabase.GetAll ();
+			QAList = db.GetAllQA ();
 
-			var moduleDB = new ModuleDatabase ();
+			db.InsertOrUpdateSkill (new Skills ("Xamarin", "20"));
+			db.InsertOrUpdateSkill (new Skills ("C#", "10"));
+			skillList = db.GetAllSkills ();
 
-			SkillsDatabase skillsDatabase = new SkillsDatabase ();
-			skillsDatabase.InsertOrUpdateSkill (new Skills ("Xamarin", "20"));
-			skillsDatabase.InsertOrUpdateSkill (new Skills ("C#", "10"));
-			skillList = skillsDatabase.GetAll ();
-
-			var databaseModules = new ObservableCollection<Module>(moduleDB.GetAll ());
+			var databaseModules = new ObservableCollection<Module>(db.GetAllModules ());
 			recentVideos = databaseModules;
 			if (recentVideos.Count < 3) {
 				Module recent1 = new Module ();
@@ -80,11 +77,11 @@ namespace QUTBraingear.Data.ViewModel
 				recent3.videoURL = "hon3";
 				recent2.videoURL = "hon2";
 				RecentVideos.Add (recent1);
-				moduleDB.InsertOrUpdateModules (recent1);
+				db.InsertOrUpdateModules (recent1);
 				RecentVideos.Add (recent2);
-				moduleDB.InsertOrUpdateModules (recent2);
+				db.InsertOrUpdateModules (recent2);
 				RecentVideos.Add (recent3);
-				moduleDB.InsertOrUpdateModules (recent3);
+				db.InsertOrUpdateModules (recent3);
 			};
 		}
 
