@@ -5,18 +5,14 @@ using QUTBraingear.Data.ViewModel;
 
 namespace QUTBraingear
 {
-	public partial class ModulePage : BaseView
+	public partial class WikiPage : BaseView
 	{
-		public ModulePage (int id = 0)
+		public WikiPage ()
 		{
 			InitializeComponent ();
 			base.Init ();
-			App.Locator.module.UpdatePageContent (id);
 			BindingContext = App.Locator.module;
 		}
-		void OnWikiTap(object sender, EventArgs args) {
-			((MasterDetailPage)Parent).Detail = new WikiPage();
-		}
+			
 	}
 }
-
