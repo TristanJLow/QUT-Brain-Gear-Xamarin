@@ -14,9 +14,6 @@ namespace QUTBraingear
 			App.Locator.module.UpdatePageContent (id);
 			BindingContext = App.Locator.module;
 		}
-		void OnWikiTap(object sender, EventArgs args) {
-			((MasterDetailPage)Parent).Detail = new WikiPage();
-		}
 	}
 }
 

@@ -12,16 +12,15 @@ namespace QUTBrainGear
 		{
 			Icon = "settings.png";
 			Title = "menu";
-			BackgroundColor = Color.FromHex ("#003f77");
+			BackgroundColor = Color.FromHex ("#ffffff");
 
 			Menu = new MenuListView ();
 
 			var menuLabel = new ContentView {
-				Padding = new Thickness (10, 15, 0, 15),
+				Padding = new Thickness (10, 10, 0, 5),
 				VerticalOptions = LayoutOptions.Center,
 				Content = new Label {
-					TextColor = Color.FromHex ("#ffffff"),
-					FontSize = 15,
+					TextColor = Color.FromHex ("#525252"),
 					Text = "USERNAME \nEmail ",
 				}
 			};
