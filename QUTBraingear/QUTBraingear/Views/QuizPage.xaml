@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<local:BaseView xmlns="http://xamarin.com/schemas/2014/forms"
+xmlns:local="clr-namespace:QUTBraingear"
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+x:Class="QUTBraingear.QuizPage">
+	<ScrollView>
+		<StackLayout BackgroundColor="#f9f9f9">
+		</StackLayout>
+	</ScrollView>
+</local:BaseView>
