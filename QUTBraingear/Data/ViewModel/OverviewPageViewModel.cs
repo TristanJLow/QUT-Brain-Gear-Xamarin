@@ -4,6 +4,7 @@ using System;
 using System.Windows.Input;
 using Xamarin.Forms;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 
 namespace QUTBraingear.Data.ViewModel
 {
@@ -22,35 +23,49 @@ namespace QUTBraingear.Data.ViewModel
 	public class OverviewPageViewModel : ViewModelBase
 	{
 		private IMyNavigationService navigationService;
-		private List<QA> qaList = new List<QA>();
-		private List<Skills> skillList = new List<Skills>();
-		private ObservableCollection<Module> recentVideos = new ObservableCollection<Module> ();
+		private QUTBrainGearDB db = new QUTBrainGearDB ();
 
-		public List<QA> QAList {
-			get { return qaList; }
-			set {
-				if (value != null && value != qaList) {
-					qaList = value;
+		private ObservableCollection<Module> _recentVideos;
+		private ObservableCollection<QA> _qaList;
+		private ObservableCollection<Skills> _skillList;
+
+		public ObservableCollection<QA> qaList {
+			get { return _qaList; }
+			set { if (_qaList != value) {
+					_qaList = value;
 				}
 			}
 		}
 
-		public ObservableCollection<Module> RecentVideos {
-			get { return recentVideos; }
-			set {
-				if (value != null && value != recentVideos) {
-					recentVideos = value;
+		public ObservableCollection<Skills> skillList {
+			get { return _skillList; }
+			set { if (_skillList != value) {
+					_skillList = value;
 				}
 			}
 		}
 
-		public List<Skills> SkillList {
-			get { return skillList; }
-			set {
-				if (value != null && value != skillList) {
-					skillList = value;
+		public ObservableCollection<Module> recentVideos {
+			get { return _recentVideos; }
+			set { if (_recentVideos != value) {
+					_recentVideos = value;
 				}
 			}
+		}
+			
+		public async void QAList () {
+			this.qaList = await db.GetAllQA ();
+			RaisePropertyChanged (() => qaList);
+		}
+
+		public async void SkillList () {
+			this.skillList = await db.GetAllSkills ();
+			RaisePropertyChanged (() => skillList);
+		}
+
+		public async void RecentVideos () {
+			this.recentVideos = await db.GetAllModules ();
+			RaisePropertyChanged (() => recentVideos);
 		}
 			
 		/// <summary>
@@ -59,30 +74,9 @@ namespace QUTBraingear.Data.ViewModel
 		public OverviewPageViewModel(IMyNavigationService navigationService)
 		{
 			this.navigationService = navigationService;
-			QUTBrainGearDB db = new QUTBrainGearDB ();
-			db.InsertOrUpdateQA (new QA ("Xamarin", DateTime.Now.ToString ()));
-
-			QAList = db.GetAllQA ();
-
-			db.InsertOrUpdateSkill (new Skills ("Xamarin", "20"));
-			db.InsertOrUpdateSkill (new Skills ("C#", "10"));
-			skillList = db.GetAllSkills ();
-
-			var databaseModules = new ObservableCollection<Module>(db.GetAllModules ());
-			recentVideos = databaseModules;
-			if (recentVideos.Count < 3) {
-				Module recent1 = new Module ();
-				Module recent2 = new Module ();
-				Module recent3 = new Module ();
-				recent3.videoURL = "hon3";
-				recent2.videoURL = "hon2";
-				RecentVideos.Add (recent1);
-				db.InsertOrUpdateModules (recent1);
-				RecentVideos.Add (recent2);
-				db.InsertOrUpdateModules (recent2);
-				RecentVideos.Add (recent3);
-				db.InsertOrUpdateModules (recent3);
-			};
+			QAList ();
+			SkillList ();
+			RecentVideos ();
 		}
 
 	}

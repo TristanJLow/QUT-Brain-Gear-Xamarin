@@ -1,5 +1,5 @@
 ﻿using System;
-
+using Microsoft.WindowsAzure.MobileServices;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
@@ -13,11 +13,18 @@ namespace QUTBraingear.Droid
 	[Activity (Label = "QUTBraingear.Droid", Icon = "@drawable/icon", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
 	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
 	{
+		public static MobileServiceClient MobileService = new MobileServiceClient(
+			"https://qutbraingearapp.azure-mobile.net/",
+			"dqTWRsEygjexEvHVQYjzrneKfvTKBU73"
+		);
+
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
 
 			global::Xamarin.Forms.Forms.Init (this, bundle);
+
+			CurrentPlatform.Init();
 
 			LoadApplication (new App ());
 		}

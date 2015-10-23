@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using SQLite.Net.Attributes;
 using QUTBraingear.Data;
+using Newtonsoft.Json;
+
 
 namespace QUTBraingear.Data
 {
 	public class Module {
-		[PrimaryKey, AutoIncrement]
-		public int moduleID { get; set; }
+		public string id { get; set; }
 		public string videoURL { get; set; }
 		public string moduleTitle { get; set; }
-		[Ignore]
+		[JsonIgnore]
 		public ObservableCollection<Skills> moduleSkills { get; set; }
-		[Ignore]
+		[JsonIgnore]
 		public ObservableCollection<Comment> moduleComments { get; set; }
 
 		public Module () {

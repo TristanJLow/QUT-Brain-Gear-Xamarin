@@ -23,9 +23,9 @@ namespace QUTBraingear.Data.ViewModel
 	{
 		private IMyNavigationService navigationService;
 		public ICommand AddCommentsCommand { get; private set;}
-		private Module module;
+		private Module module { get; set; }
 		public string AddComment { get; set; }
-		private QUTBrainGearDB database = new QUTBrainGearDB();
+		private QUTBrainGearDB db = new QUTBrainGearDB();
 
 		/// <summary>
 		/// Initializes a new instance of the MainViewModel class.
@@ -35,47 +35,66 @@ namespace QUTBraingear.Data.ViewModel
 
 			AddCommentsCommand = new Command (() => {
 				var newComment = new Comment(ModuleId, AddComment);
-				database.InsertOrUpdateComments(newComment);
+				db.InsertOrUpdateComments(newComment);
 				module.moduleComments.Add(newComment);
 				AddComment = null;
+				RaisePropertyChanged (() => ModuleComments);
 				RaisePropertyChanged (() => AddComment);
 				RaisePropertyChanged (() => ListHeight);
 			});
 		}
-		public void UpdatePageContent (int selectedModule) {
-			module = database.GetModule(selectedModule);
 
-			ObservableCollection<Comment> storedComments = new ObservableCollection<Comment>(database.GetModuleComments(ModuleId));
-			module.moduleComments = storedComments;
+		public async void UpdatePageContent (string selectedModule) {
+			module = await db.GetModule(selectedModule).ConfigureAwait(false);
+			RaisePropertyChanged (() => ModuleSkills);
+			RaisePropertyChanged (() => ModuleVideo);
+			module.moduleComments = new ObservableCollection<Comment>(await db.GetModuleComments(ModuleId).ConfigureAwait(false));
+			RaisePropertyChanged (() => ModuleComments);
+			RaisePropertyChanged (() => ListHeight);
 		}
 
-		public int ModuleId {
+		public string ModuleId {
 			get {
-				return module.moduleID;
+				return module.id;
 			}
 		}
 
 		public string ModuleVideo {
 			get {
-				return module.videoURL;
+				if (module == null) {
+					return "";
+				} else {
+					return module.videoURL;
+				}
 			}
 		}
 
 		public ObservableCollection<Skills> ModuleSkills {
 			get {
-				return module.moduleSkills;
+				if (module == null) {
+					return null;
+				} else {
+					return module.moduleSkills;
+				}
 			}
 		}
 
 		public ObservableCollection<Comment> ModuleComments {
 			get {
-				return module.moduleComments;
+				if (module == null) {
+					return null;
+				} else {
+					return module.moduleComments;
+				}
 			}
 		}
 
 		public int ListHeight {
 			get {
-				var objects = module.moduleComments.Count;
+				var objects = 0;
+				if (module != null) {
+					objects = module.moduleComments.Count;
+				}
 				var height = (objects * 25) + 40;
 				return height;
 			}

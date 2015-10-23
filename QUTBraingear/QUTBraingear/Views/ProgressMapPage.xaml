@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<BaseView xmlns="http://xamarin.com/schemas/2014/forms" 
+<local:BaseView xmlns="http://xamarin.com/schemas/2014/forms"
+xmlns:local="clr-namespace:QUTBraingear"
 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 x:Class="QUTBraingear.ProgressMapPage">
 	<StackLayout>
 		<WebView x:Name="ProgressMap" Source="file:///android_asset/ProgressMap.html" WidthRequest="1000" HeightRequest="1000"/>
 	</StackLayout>
-</BaseView>
+</local:BaseView>

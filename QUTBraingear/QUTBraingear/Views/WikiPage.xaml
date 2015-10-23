@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<BaseView xmlns="http://xamarin.com/schemas/2014/forms" 
+<local:BaseView xmlns="http://xamarin.com/schemas/2014/forms"
+xmlns:local="clr-namespace:QUTBraingear"
 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 x:Class="QUTBraingear.WikiPage">
 	<ScrollView>
@@ -28,4 +29,4 @@ x:Class="QUTBraingear.WikiPage">
 			</Frame>
 		</StackLayout>
 	</ScrollView>
-</BaseView>
+</local:BaseView>

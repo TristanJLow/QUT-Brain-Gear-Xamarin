@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<BaseView xmlns="http://xamarin.com/schemas/2014/forms" 
+<local:BaseView xmlns="http://xamarin.com/schemas/2014/forms"
+xmlns:local="clr-namespace:QUTBraingear"
 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 x:Class="QUTBraingear.OverviewPage">
 	<StackLayout>
@@ -7,7 +8,7 @@ x:Class="QUTBraingear.OverviewPage">
 	    <RelativeLayout>
 			<ListView
 				x:Name="MessagesListView"
-				ItemsSource="{Binding RecentVideos}"
+				ItemsSource="{Binding recentVideos}"
 				RowHeight="120"
 				Rotation="270"
 				RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=-50}"
@@ -33,7 +34,7 @@ x:Class="QUTBraingear.OverviewPage">
 		</Frame>
 							
 	    <Frame x:Name="frame_liveqa" VerticalOptions="FillAndExpand"  HeightRequest="120" OutlineColor="Silver" BackgroundColor="White" >
-				<ListView x:Name="listview_liveqa" ItemsSource="{Binding QAList, Mode=OneWay}">
+				<ListView x:Name="listview_liveqa" ItemsSource="{Binding qaList, Mode=OneWay}">
 					<ListView.Header>
 						<Label x:Name="label_qaSection" FontSize="Large" TextColor="Black" Text="Live Questions and Answers" />
 					</ListView.Header>
@@ -60,7 +61,7 @@ x:Class="QUTBraingear.OverviewPage">
 				</ListView>
 		</Frame>
 		<Frame x:Name="frame_skills" VerticalOptions="FillAndExpand" Padding="20"  HeightRequest="150" OutlineColor="Silver" BackgroundColor="White" >
-			<ListView x:Name="listview_skills" ItemsSource="{Binding SkillList, Mode=OneWay}">
+			<ListView x:Name="listview_skills" ItemsSource="{Binding skillList, Mode=OneWay}">
 				<ListView.Header>
 					<Label x:Name="label_skillSection" FontSize="Large" TextColor="Black" Text="Skills" />
 				</ListView.Header>
@@ -86,4 +87,4 @@ x:Class="QUTBraingear.OverviewPage">
 			</ListView>
 		</Frame>
 	</StackLayout>
-</BaseView>
+</local:BaseView>
