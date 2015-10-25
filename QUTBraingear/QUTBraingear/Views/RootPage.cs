@@ -14,7 +14,7 @@ namespace QUTBrainGear
 			menuPage = new MenuPage ();
 
 			menuPage.Menu.ItemSelected += (sender, e) => NavigateTo (e.SelectedItem as MenuItem);
-			var navPage = new OverviewPage ();
+			var navPage = new LoginPage ();
 
 			Master = menuPage;
 			Detail = navPage;

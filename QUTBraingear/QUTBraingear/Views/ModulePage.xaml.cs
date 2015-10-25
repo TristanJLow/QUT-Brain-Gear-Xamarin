@@ -18,6 +18,10 @@ namespace QUTBraingear
 		void OnWikiTap(object sender, EventArgs args) {
 			((MasterDetailPage)Parent).Detail = new WikiPage();
 		}
+
+		void OnQuizTap(object sender, EventArgs args) {
+			((MasterDetailPage)Parent).Detail = new QuizPage();
+		}
 	}
 }
 

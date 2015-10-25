@@ -13,8 +13,6 @@ namespace QUTBraingear
 			InitializeComponent ();
 			base.Init ();
 			BindingContext = App.Locator.progressMap;
-
-
 		}
 
 

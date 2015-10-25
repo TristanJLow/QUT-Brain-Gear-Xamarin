@@ -31,9 +31,9 @@ namespace QUTBraingear
 		public Page GetMainPage()
 		{
 			nav = new NavigationService ();
-			nav.Configure (ViewModelLocator.LoginPagePageKey, typeof(LoginPage));
+			nav.Configure (ViewModelLocator.LoginPagePageKey, typeof(RootPage));
 			SimpleIoc.Default.Register<IMyNavigationService> (()=> nav, true);
-			var navPage = new NavigationPage (new LoginPage ());
+			var navPage = new NavigationPage (new RootPage ());
 			navPage.BarBackgroundColor = Color.FromHex("003f77");
 			nav.Initialize (navPage);
 			return navPage;

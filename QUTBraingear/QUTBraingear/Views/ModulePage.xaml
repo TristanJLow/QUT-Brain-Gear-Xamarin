@@ -81,7 +81,7 @@ x:Class="QUTBraingear.ModulePage">
 							<ColumnDefinition Width="*"/>
 						</Grid.ColumnDefinitions>
 						<Button Grid.Column="0" x:Name="button_wiki" Text="Wiki" Clicked="OnWikiTap" />
-						<Button Grid.Column="1" x:Name="button_quiz" Text="Quiz" />
+						<Button Grid.Column="1" x:Name="button_quiz" Text="Quiz" Clicked="OnQuizTap" />
 					</Grid>
 				</StackLayout>
 			</Frame>
