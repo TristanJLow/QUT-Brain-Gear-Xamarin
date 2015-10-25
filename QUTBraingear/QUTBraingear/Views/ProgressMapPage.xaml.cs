@@ -14,12 +14,9 @@ namespace QUTBraingear
 			base.Init ();
 			BindingContext = App.Locator.progressMap;
 
-			Title = "Progress Map";
-			Icon = "progressmap.png";
 
-			var html = new HtmlWebViewSource {
-				Html = "ProgressMap.html"
-			};
 		}
+
+
 	}
 }
