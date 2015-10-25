@@ -16,7 +16,11 @@ namespace QUTBraingear
 		}
 
 		void OnLoginTap(object sender, EventArgs args) {
-			((MasterDetailPage)Parent).Detail = new OverviewPage();
+			if (this.Username.Text == "admin" && this.Password.Text == "admin") {
+				((MasterDetailPage)Parent).Detail = new OverviewPage ();
+			} else {
+				DisplayAlert ("Alert", "Invalid username or password", "OK");
+			}
 		}
 	}
 }

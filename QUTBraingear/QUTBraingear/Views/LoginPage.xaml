@@ -7,8 +7,8 @@
   
    <StackLayout Spacing="40" Padding="40" VerticalOptions="Center">
    		<Label x:Name="label_loginTitle" FontAttributes="Bold" Text="QUT BrainGear" TextColor="#6666b2" Font="50" />
-   		<Entry Placeholder="Username" Text="{Binding Username}"/>
-   		<Entry Placeholder="Password" Text="{Binding Password}" IsPassword="true"/>
+   		<Entry x:Name="Username" Placeholder="Username" Text="{Binding Username}"/>
+   		<Entry x:Name="Password" Placeholder="Password" Text="{Binding Password}" IsPassword="true"/>
 
      <Button x:Name="button_login" Text="Login" HorizontalOptions="CenterAndExpand" Clicked="OnLoginTap"/>
    </StackLayout>
