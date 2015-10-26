@@ -26,18 +26,24 @@ x:Class="QUTBraingear.ProgressMapPage">
 				<ColumnDefinition Width="1*"/>
 				<ColumnDefinition Width="1*"/>
 			</Grid.ColumnDefinitions>
-			<TapGestureRecognizer Command="{Binding programmingModule}" >
-				<Image Grid.Column="0" Grid.Row="0" Source="ProgrammingPercent.png" />
-				<Label Grid.Column="1" Grid.Row="0" Text="Mobile App Development" />
-			</TapGestureRecognizer>
-			<TapGestureRecognizer Command="{Binding designModule}">
-				<Image Grid.Column="0" Grid.Row="1" Source="DesignPercent.png" />
-				<Label Grid.Column="1" Grid.Row="1" Text="Web Design" />
-			</TapGestureRecognizer>
-			<TapGestureRecognizer Command="{Binding marketingModule}">
-				<Image Grid.Column="0" Grid.Row="2" Source="MarketingPercent.png" />
-				<Label Grid.Column="1" Grid.Row="2" Text="International Markets" />
-			</TapGestureRecognizer>
+			<Image Grid.Column="0" Grid.Row="0" Source="ProgrammingPercent.png" >
+				<Image.GestureRecognizers>
+				    <TapGestureRecognizer Command="{Binding programmingModule}" />
+				</Image.GestureRecognizers>
+			</Image>
+			<Label Grid.Column="1" Grid.Row="0" Text="Mobile App Development" />
+			<Image Grid.Column="0" Grid.Row="1" Source="DesignPercent.png" >
+				<Image.GestureRecognizers>
+				    <TapGestureRecognizer Command="{Binding designModule}" />
+				</Image.GestureRecognizers>
+			</Image>
+			<Label Grid.Column="1" Grid.Row="1" Text="Web Design" />
+			<Image Grid.Column="0" Grid.Row="2" Source="MarketingPercent.png" >
+				<Image.GestureRecognizers>
+				    <TapGestureRecognizer Command="{Binding marketingModule}" />
+				</Image.GestureRecognizers>
+			</Image>
+			<Label Grid.Column="1" Grid.Row="2" Text="International Markets" />
 		</Grid>
 	</StackLayout>
 </local:BaseView>
