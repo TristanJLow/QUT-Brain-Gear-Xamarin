@@ -5,6 +5,8 @@ using QUTBraingear.Data.ViewModel;
 using QUTBraingear.Data;
 using QUTBraingear;
 using QUTBrainGear;
+using Microsoft.WindowsAzure.MobileServices;
+using Microsoft.WindowsAzure.MobileServices.Sync;
 
 namespace QUTBraingear
 {

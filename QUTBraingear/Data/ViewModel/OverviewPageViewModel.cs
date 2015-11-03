@@ -5,6 +5,7 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using Microsoft.WindowsAzure.MobileServices;
 
 namespace QUTBraingear.Data.ViewModel
 {
@@ -23,7 +24,11 @@ namespace QUTBraingear.Data.ViewModel
 	public class OverviewPageViewModel : ViewModelBase
 	{
 		private IMyNavigationService navigationService;
-		private QUTBrainGearDB db = new QUTBrainGearDB ();
+		private static MobileServiceClient _MobileService;
+		public MobileServiceClient MobileService {
+			get { return _MobileService; }
+			set { _MobileService = value; }
+		}
 
 		private ObservableCollection<Module> _recentVideos;
 		private ObservableCollection<QA> _qaList;
@@ -54,19 +59,26 @@ namespace QUTBraingear.Data.ViewModel
 		}
 			
 		public async void QAList () {
-			this.qaList = await db.GetAllQA ();
+			this.qaList = await QUTBrainGearDB.GetAllQA ().ConfigureAwait(false);
 			RaisePropertyChanged (() => qaList);
 		}
 
 		public async void SkillList () {
-			this.skillList = await db.GetAllSkills ();
+			this.skillList = await QUTBrainGearDB.GetAllSkills ().ConfigureAwait(false);
 			RaisePropertyChanged (() => skillList);
 		}
 
 		public async void RecentVideos () {
-			this.recentVideos = await db.GetAllModules ();
+			this.recentVideos = await QUTBrainGearDB.GetAllModules ().ConfigureAwait(false);
 			RaisePropertyChanged (() => recentVideos);
 		}
+
+		public void GetData() {
+			QAList ();
+			SkillList ();
+			RecentVideos ();
+		}
+
 			
 		/// <summary>
 		/// Initializes a new instance of the MainViewModel class.
@@ -74,9 +86,7 @@ namespace QUTBraingear.Data.ViewModel
 		public OverviewPageViewModel(IMyNavigationService navigationService)
 		{
 			this.navigationService = navigationService;
-			QAList ();
-			SkillList ();
-			RecentVideos ();
+			GetData ();
 		}
 
 	}

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Xamarin.Forms;
 using QUTBraingear.Data.ViewModel;
+using QUTBraingear.Data;
 
 namespace QUTBraingear
 {

@@ -4,6 +4,7 @@ using System;
 using System.Windows.Input;
 using Xamarin.Forms;
 using System.Collections.ObjectModel;
+using Microsoft.WindowsAzure.MobileServices;
 
 namespace QUTBraingear.Data.ViewModel
 {
@@ -25,7 +26,6 @@ namespace QUTBraingear.Data.ViewModel
 		public ICommand AddCommentsCommand { get; private set;}
 		private Module module { get; set; }
 		public string AddComment { get; set; }
-		private QUTBrainGearDB db = new QUTBrainGearDB();
 
 		/// <summary>
 		/// Initializes a new instance of the MainViewModel class.
@@ -35,7 +35,7 @@ namespace QUTBraingear.Data.ViewModel
 
 			AddCommentsCommand = new Command (() => {
 				var newComment = new Comment(ModuleId, AddComment);
-				db.InsertOrUpdateComments(newComment);
+				QUTBrainGearDB.InsertOrUpdateComments(newComment);
 				module.moduleComments.Add(newComment);
 				AddComment = null;
 				RaisePropertyChanged (() => ModuleComments);
@@ -45,10 +45,10 @@ namespace QUTBraingear.Data.ViewModel
 		}
 
 		public async void UpdatePageContent (string selectedModule) {
-			module = await db.GetModule(selectedModule).ConfigureAwait(false);
+			module = await QUTBrainGearDB.GetModule(selectedModule).ConfigureAwait(false);
 			RaisePropertyChanged (() => ModuleSkills);
 			RaisePropertyChanged (() => ModuleVideo);
-			module.moduleComments = new ObservableCollection<Comment>(await db.GetModuleComments(ModuleId).ConfigureAwait(false));
+			module.moduleComments = new ObservableCollection<Comment>(await QUTBrainGearDB.GetModuleComments(ModuleId).ConfigureAwait(false));
 			RaisePropertyChanged (() => ModuleComments);
 			RaisePropertyChanged (() => ListHeight);
 		}

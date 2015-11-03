@@ -6,82 +6,96 @@ using Microsoft.WindowsAzure.MobileServices;
 using System.Threading.Tasks;
 using System;
 using System.Collections.ObjectModel;
+using Microsoft.WindowsAzure.MobileServices.Sync;
 
 namespace QUTBraingear.Data
 {
-	public class QUTBrainGearDB
+	public static class QUTBrainGearDB
 	{
-		public static MobileServiceClient MobileService = new MobileServiceClient(
-			"https://qutbraingearapp.azure-mobile.net/",
-			"dqTWRsEygjexEvHVQYjzrneKfvTKBU73"
-		);
+		public static IMobileServiceSyncTable<Module> ModuleTable { get; set; }
+		public static IMobileServiceSyncTable<QA> QATable { get; set; }
+		public static IMobileServiceSyncTable<Comment> CommentTable { get; set; }
+		public static IMobileServiceSyncTable<Skills> SkillsTable { get; set; }
 
-		public QUTBrainGearDB () {
+		public static IMobileServiceClient MobileService { get; set; }
+
+		public static void SyncAsync()
+		{
+			MobileService.SyncContext.PushAsync().ConfigureAwait(false);
+
+			ModuleTable.PullAsync ("allModules", ModuleTable.CreateQuery());
+			QATable.PullAsync ("allQA", QATable.CreateQuery());
+			CommentTable.PullAsync ("allComments", CommentTable.CreateQuery());
+			SkillsTable.PullAsync("allSkills", SkillsTable.CreateQuery());
 		}
 
-		public async Task<ObservableCollection<Module>> GetAllModules(){
-			var x = new ObservableCollection<Module>(await MobileService.GetTable<Module>().ToCollectionAsync<Module>());
+		public static async Task<ObservableCollection<Module>> GetAllModules(){
+			var x = new ObservableCollection<Module>(await ModuleTable.ToCollectionAsync<Module>().ConfigureAwait(false));
 			return x;
 		}
 
-		public async Task<ObservableCollection<QA>> GetAllQA(){
-			var x = new ObservableCollection<QA>(await MobileService.GetTable<QA>().ToCollectionAsync<QA>());
+		public static async Task<ObservableCollection<QA>> GetAllQA(){
+			var x = new ObservableCollection<QA>(await QATable.ToCollectionAsync<QA>().ConfigureAwait(false));
 			return x;
 		}
 
-		public async Task<ObservableCollection<Skills>> GetAllSkills(){
-			var x = new ObservableCollection<Skills>(await MobileService.GetTable<Skills>().ToCollectionAsync<Skills>());
+		public static async Task<ObservableCollection<Skills>> GetAllSkills(){
+			var x = new ObservableCollection<Skills>(await SkillsTable.ToCollectionAsync<Skills>().ConfigureAwait(false));
 			return x;
 		}
 
-		public async Task<Module> GetModule(string moduleId) {
+		public static async Task<Module> GetModule(string moduleId) {
 			var x = new Module ();
-			x = await MobileService.GetTable<Module> ().LookupAsync (moduleId).ConfigureAwait(false);
+			x = await ModuleTable.LookupAsync (moduleId).ConfigureAwait(false);
 			return x;
 		}
 
-		public async Task<ObservableCollection<Comment>> GetModuleComments(string moduleId){
-			var x = new ObservableCollection<Comment>(await MobileService.GetTable<Comment> ().Where(y => y.moduleId == moduleId).ToCollectionAsync<Comment>().ConfigureAwait(false));
+		public static async Task<ObservableCollection<Comment>> GetModuleComments(string moduleId){
+			var x = new ObservableCollection<Comment>(await CommentTable.Where(y => y.moduleId == moduleId).ToCollectionAsync<Comment>().ConfigureAwait(false));
 			return x;
 		}
 
-		public int InsertOrUpdateQA(QA qa){
+		public static int InsertOrUpdateQA(QA qa){
 			var lookup = MobileService.GetTable<QA> ().LookupAsync (qa.id);
 			if (lookup == null || qa.id == null) {
-				MobileService.GetTable<QA> ().InsertAsync (qa);
+				QATable.InsertAsync (qa);
 			} else {
-				MobileService.GetTable<QA> ().UpdateAsync (qa);
+				QATable.UpdateAsync (qa);
 			}
+			MobileService.SyncContext.PushAsync();
 			return 1;
 		}
 
-		public int InsertOrUpdateModules(Module module){
-			var lookup = MobileService.GetTable<Module> ().LookupAsync (module.id);
+		public static int InsertOrUpdateModules(Module module){
+			var lookup = ModuleTable.LookupAsync (module.id);
 			if (lookup == null || module.id == null) {
-				MobileService.GetTable<Module> ().InsertAsync (module);
+				ModuleTable.InsertAsync (module);
 			} else {
-				MobileService.GetTable<Module> ().UpdateAsync (module);
+				ModuleTable.UpdateAsync (module);
 			}
+			MobileService.SyncContext.PushAsync();
 			return 1;
 		}
 
-		public int InsertOrUpdateComments(Comment comment){
-			var lookup = MobileService.GetTable<Comment> ().LookupAsync (comment.id);
+		public static int InsertOrUpdateComments(Comment comment){
+			var lookup = CommentTable.LookupAsync (comment.id);
 			if (lookup == null || comment.id == null) {
-				MobileService.GetTable<Comment> ().InsertAsync (comment);
+				CommentTable.InsertAsync (comment);
 			} else {
-				MobileService.GetTable<Comment> ().UpdateAsync (comment);
+				CommentTable.UpdateAsync (comment);
 			}
+			MobileService.SyncContext.PushAsync();
 			return 1;
 		}
 
-		public int InsertOrUpdateSkills(Skills skill){
-			var lookup = MobileService.GetTable<Skills> ().LookupAsync (skill.id);
+		public static int InsertOrUpdateSkills(Skills skill){
+			var lookup = SkillsTable.LookupAsync (skill.id);
 			if (lookup == null || skill.id == null) {
-				MobileService.GetTable<Skills> ().InsertAsync (skill);
+				SkillsTable.InsertAsync (skill);
 			} else {
-				MobileService.GetTable<Skills> ().UpdateAsync (skill);
+				SkillsTable.UpdateAsync (skill);
 			}
+			MobileService.SyncContext.PushAsync();
 			return 1;
 		}
 	}
