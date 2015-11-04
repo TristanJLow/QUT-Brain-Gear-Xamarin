@@ -28,6 +28,8 @@ namespace QUTBraingear.Data.ViewModel
 		public const string OverviewPagePageKey = "OverviewPage";
 		public const string ProgressMapPagePageKey = "ProgressMapPage";
 		public const string LoginPagePageKey = "LoginPage";
+		public const string SearchPagePageKey = "SearchPage";
+
 		/// <summary>
 		/// Initializes a new instance of the ViewModelLocator class.
 		/// </summary>
@@ -74,6 +76,12 @@ namespace QUTBraingear.Data.ViewModel
 					);
 				});
 
+			SimpleIoc.Default.Register<SearchPageViewModel>(() =>
+				{
+					return new SearchPageViewModel(
+						SimpleIoc.Default.GetInstance<IMyNavigationService>()
+					);
+				});
 		}
 
 		public OverviewPageViewModel overview
@@ -105,6 +113,14 @@ namespace QUTBraingear.Data.ViewModel
 			get
 			{
 				return ServiceLocator.Current.GetInstance<LoginPageViewModel>();
+			}
+		}
+
+		public SearchPageViewModel search
+		{
+			get
+			{
+				return ServiceLocator.Current.GetInstance<SearchPageViewModel>();
 			}
 		}
 

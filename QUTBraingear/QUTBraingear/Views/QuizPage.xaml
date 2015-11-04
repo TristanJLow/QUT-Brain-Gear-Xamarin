@@ -2,9 +2,28 @@
 <local:BaseView xmlns="http://xamarin.com/schemas/2014/forms"
 xmlns:local="clr-namespace:QUTBraingear"
 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
 x:Class="QUTBraingear.QuizPage">
-	<ScrollView>
-		<StackLayout BackgroundColor="#f9f9f9">
-		</StackLayout>
-	</ScrollView>
+    <ScrollView>
+        <StackLayout BackgroundColor="White">
+            <Label Text="Q1 - We can use reserved keywords as identifiers in C#?" x:Name="Q1" TextColor ="Black"/>
+                <controls:CheckBox x:Name="Answer11"  DefaultText="A - true" HorizontalOptions="FillAndExpand" TextColor="Green" FontName="AmericanTypewriter"/>
+                <controls:CheckBox x:Name="Answer12" DefaultText="B - false" HorizontalOptions="FillAndExpand" TextColor="Green" FontName="AmericanTypewriter"/>
+
+            <Label Text="Q2 - Which of the following converts a type to a signed byte type in C#?" x:Name="Q2" TextColor ="Black"/>
+                <controls:CheckBox x:Name="Answer21"  DefaultText="A - ToInt64" HorizontalOptions="FillAndExpand" TextColor="Green" FontName="AmericanTypewriter"/>
+                <controls:CheckBox x:Name="Answer22" DefaultText="B - ToSingle" HorizontalOptions="FillAndExpand" TextColor="Green" FontName="AmericanTypewriter"/>
+
+            <Label Text="Q3 - The comparison operators can be overloaded?" x:Name="Q3" TextColor ="Black"/>
+                <controls:CheckBox x:Name="Answer31"  DefaultText="A - true" HorizontalOptions="FillAndExpand" TextColor="Green" FontName="AmericanTypewriter"/>
+                <controls:CheckBox x:Name="Answer32" DefaultText="B - false" HorizontalOptions="FillAndExpand" TextColor="Green" FontName="AmericanTypewriter"/>
+
+                <Label Text="Q4 - Which of the following is true about exceptions in C#?" x:Name="Q4" TextColor ="Black"/>
+                <controls:CheckBox x:Name="Answer41"  DefaultText="A - C# exceptions are represented by classes" HorizontalOptions="FillAndExpand" TextColor="Green" FontName="AmericanTypewriter"/>
+                <controls:CheckBox x:Name="Answer42" DefaultText="B - Exceptions are derived from Sytem.Exception" HorizontalOptions="FillAndExpand" TextColor="Green" FontName="AmericanTypewriter"/>
+
+            <Button x:Name="button_ok" Text="Ok"  Clicked="OnOkTap"/>
+            <Button x:Name="button_home" Text="Home"  Clicked="OnHomeTap"/>
+        </StackLayout>
+    </ScrollView>
 </local:BaseView>

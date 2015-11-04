@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<local:BaseView xmlns="http://xamarin.com/schemas/2014/forms"
+xmlns:local="clr-namespace:QUTBraingear"
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+x:Class="QUTBraingear.SearchPage">
+	<ScrollView>
+		<StackLayout>
+            <SearchBar Placeholder="Search" x:Name="SearchBarControl" Text="{Binding SearchText}" SearchCommand="{Binding SearchCommand}" BackgroundColor="#003f77"/>
+            <ListView x:Name="listview_search" ItemsSource="{Binding SearchResults, Mode=OneWay}" BackgroundColor="White" ItemTapped="OnModuleTap">
+                <ListView.Header>
+                    <Label x:Name="label_searchSection" FontSize="Large" TextColor="Black" Text="Search Results" />
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding Title}" x:Name="qaTitle" TextColor ="Black"/>
+                                <Frame Grid.Row="1" Grid.Column="2" OutlineColor="Black" BackgroundColor="#003f77" Padding="0">
+                                    <Label XAlign="Center"  Text="Module" TextColor ="White"/>
+                                </Frame>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+	</ScrollView>
+</local:BaseView>

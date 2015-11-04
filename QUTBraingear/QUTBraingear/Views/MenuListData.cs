@@ -21,7 +21,12 @@ namespace QUTBrainGear
 				IconSource = "progressmap.png", 
 				TargetType = typeof(ProgressMapPage)
 			});
-					
+
+			this.Add (new MenuItem () { 
+				Title = "Search", 
+				IconSource = "progressmap.png", 
+				TargetType = typeof(SearchPage)
+			});
 		}
 	}
 }

@@ -3,21 +3,23 @@ using System.Collections.Generic;
 using Xamarin.Forms;
 using QUTBraingear.Data.ViewModel;
 using QUTBraingear.Data;
+using QUTBraingear.Data.Models;
 
 namespace QUTBraingear
 {
-	public partial class OverviewPage : BaseView
+	public partial class SearchPage : BaseView
 	{
-		public OverviewPage ()
+		public SearchPage()
 		{
 			InitializeComponent ();
 			base.Init ();
-			BindingContext = App.Locator.overview;
+			BindingContext = App.Locator.search;
 		}
 
 		void OnModuleTap(object sender, EventArgs args) {
-			var recentList= (ListView)sender;
-			var selectedModule = (recentList.SelectedItem as Module);
+			App.Locator.search.ClearSearch ();
+			var resultList= (ListView)sender;
+			var selectedModule = (resultList.SelectedItem as SearchResult);
 			var moduleId = selectedModule.id;
 			((MasterDetailPage)Parent).Detail = new ModulePage (moduleId);
 		}
