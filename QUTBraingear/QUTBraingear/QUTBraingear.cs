@@ -42,7 +42,7 @@ namespace QUTBraingear
 		}
 		protected override void OnStart ()
 		{
-			// Handle when your app starts
+			QUTBrainGearDB.SyncAsync ();
 		}
 
 		protected override void OnSleep ()

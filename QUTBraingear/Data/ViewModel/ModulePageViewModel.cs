@@ -99,6 +99,16 @@ namespace QUTBraingear.Data.ViewModel
 			}
 		}
 
+		public String ModuleDesc {
+			get {
+				if (module == null) {
+					return null;
+				} else {
+					return module.moduleDesc;
+				}
+			}
+		}
+
 		public int ListHeight {
 			get {
 				var objects = 0;
