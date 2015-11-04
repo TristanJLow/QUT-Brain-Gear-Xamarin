@@ -9,22 +9,22 @@ x:Class="QUTBraingear.OverviewPage">
 			<ListView
 				x:Name="MessagesListView"
 				ItemsSource="{Binding recentVideos}"
-				RowHeight="120"
+				RowHeight="200"
 				Rotation="270"
-				RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=-50}"
-				RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=-0.5, Constant=60}"
-				RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=100}"
-				RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+				RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=-96}"
+				RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=-0.5, Constant=30}"
+				RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=190}"
+				RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1.13}"
 				ItemTapped="OnModuleTap"
 			>
 				<ListView.ItemTemplate>
 					<DataTemplate>
 						<ViewCell>
 							<ViewCell.View>
-								<RelativeLayout >
-									<Image Source="play_button.png" Rotation="90" TranslationY="25" />
-									<Label Text="{Binding moduleTitle}" TextColor ="White" TranslationX="-10" TranslationY="50" Rotation="90" />
-								</RelativeLayout>
+								<StackLayout>
+									<Image Source="PlaceholderVid.png" TranslationY="56" Rotation="90" />
+									<Label Text="{Binding moduleTitle}" TextColor ="White" XAlign="Center" YAlign="Center" TranslationX="-60" TranslationY="-5" Rotation="90" BackgroundColor="#003f77" />
+								</StackLayout>
 							</ViewCell.View>
 						</ViewCell>
 					</DataTemplate>

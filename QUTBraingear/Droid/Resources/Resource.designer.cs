@@ -3332,7 +3332,7 @@ namespace QUTBraingear.Droid
 			public const int notification_template_icon_bg = 2130837615;
 			
 			// aapt resource value: 0x7f020068
-			public const int play_button = 2130837608;
+			public const int PlaceholderVid = 2130837608;
 			
 			// aapt resource value: 0x7f020069
 			public const int Programming = 2130837609;

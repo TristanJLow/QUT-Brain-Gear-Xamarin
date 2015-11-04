@@ -16,8 +16,8 @@ namespace QUTBraingear.Data
 		public ObservableCollection<Comment> moduleComments { get; set; }
 
 		public Module () {
-			moduleTitle = "Testing title";
-			videoURL = "https://www.youtube.com/embed/bFdP3_TF7Ks";
+			moduleTitle = "";
+			videoURL = "";
 			moduleSkills = new ObservableCollection<Skills>();
 			moduleSkills.Add(new Skills ("Programming", "2"));
 			moduleSkills.Add(new Skills("C#","1"));
