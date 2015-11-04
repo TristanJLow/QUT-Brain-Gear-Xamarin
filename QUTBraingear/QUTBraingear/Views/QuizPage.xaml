@@ -5,6 +5,38 @@ xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 x:Class="QUTBraingear.QuizPage">
 	<ScrollView>
 		<StackLayout BackgroundColor="#f9f9f9">
+			<Image Source="xamarin_logo.png"/>
+			<Frame x:Name="frame_Question1" OutlineColor="Silver" BackgroundColor="White">
+				<StackLayout VerticalOptions="FillAndExpand">
+					<Label x:Name="label_quizTitle" Text="XAMARIN QUIZ" TextColor="Black" Font="24" />
+					<Label x:Name="label_wikiInfo" TextColor="Black" Font="14">
+						Question 1: Blah
+					</Label>
+					<controls:CheckBox DefaultText="a) Blah" HorizontalOptions="FillAndExpand" FontSize="25"/>
+					<controls:CheckBox DefaultText="b) Blah" HorizontalOptions="FillAndExpand" FontSize="25"/>
+					<controls:CheckBox DefaultText="c) Blah" HorizontalOptions="FillAndExpand" FontSize="25"/>
+					<controls:CheckBox DefaultText="d) Blah" HorizontalOptions="FillAndExpand" FontSize="25"/>
+				</StackLayout>
+			</Frame>
+			<Frame x:Name="frame_Question2" OutlineColor="Silver" BackgroundColor="White" >
+				<StackLayout VerticalOptions="FillAndExpand">
+					<Label x:Name="label_wiki2Info" TextColor="Black" Font="14">
+						Question 2: Blah
+					</Label>
+					<controls:CheckBox DefaultText="a) Blah" HorizontalOptions="FillAndExpand" FontSize="25"/>
+					<controls:CheckBox DefaultText="b) Blah" HorizontalOptions="FillAndExpand" FontSize="25"/>
+					<controls:CheckBox DefaultText="c) Blah" HorizontalOptions="FillAndExpand" FontSize="25"/>
+					<controls:CheckBox DefaultText="d) Blah" HorizontalOptions="FillAndExpand" FontSize="25"/>
+				</StackLayout>
+			</Frame>
+
+			<Frame x:Name="frame_QuizSubmit" OutlineColor="Silver" BackgroundColor="White" >
+				<StackLayout VerticalOptions="FillAndExpand" >
+						<Button x:Name="button_QuizSubmit" Text="Submit"/>
+				</StackLayout>
+			</Frame>
+
 		</StackLayout>
 	</ScrollView>
+
 </local:BaseView>
