@@ -28,12 +28,12 @@ x:Class="QUTBraingear.ProgressMapPage">
 			</Grid.ColumnDefinitions>
 			<Image Grid.Column="0" TranslationX="5" Grid.Row="0" Source="Programming_FIX.png" >
 				<Image.GestureRecognizers>
-				    <TapGestureRecognizer  />
+				    <TapGestureRecognizer Tapped="OnModuleTap"  />
 				</Image.GestureRecognizers>
 			</Image>
 			<Image Grid.Column="0" Grid.Row="1" Source="Design_FIX.png" >
 				<Image.GestureRecognizers>
-				    <TapGestureRecognizer  Command="OnModuleTap" />
+				    <TapGestureRecognizer />
 				</Image.GestureRecognizers>
 			</Image>
 			<Image Grid.Column="0" Grid.Row="2" Source="Marketing_FIX.png" >
