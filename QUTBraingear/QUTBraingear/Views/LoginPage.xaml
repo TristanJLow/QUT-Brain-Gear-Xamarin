@@ -12,9 +12,9 @@
    <Frame x:Name="frame_login" HeightRequest="250" OutlineColor="Silver" BackgroundColor="White" >
    		<StackLayout>
    					<Label x:Name="label_user" Text="QUT ID" TextColor="Black" Font="18" />
-   					<Entry x:Name="Username" Text="{Binding Username}" BackgroundColor="#f9f9f9" />
+   					<Entry x:Name="Username" Text="{Binding Username}" TextColor="Black" BackgroundColor="#f9f9f9" />
    					<Label x:Name="label_password" Text="Password" TextColor="Black" Font="18" />
-   					<Entry x:Name="Password" Text="{Binding Password}" BackgroundColor="#f9f9f9" IsPassword="true"/>
+   					<Entry x:Name="Password" Text="{Binding Password}" TextColor="Black" BackgroundColor="#f9f9f9" IsPassword="true"/>
 					<Button Grid.Column="0" BackgroundColor="#003f77" x:Name="button_login" Text="Login" Clicked="OnLoginTap"/>
 					<Label x:Name="label_forgot" Text="Forgot your QUT ID or password? Tap here." TextColor="Black" Font="10" />
 				</StackLayout>
