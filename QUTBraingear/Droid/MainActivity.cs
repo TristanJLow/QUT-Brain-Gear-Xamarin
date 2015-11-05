@@ -15,7 +15,7 @@ using Microsoft.WindowsAzure.MobileServices.Sync;
 
 namespace QUTBraingear.Droid
 {
-	[Activity (Label = "QUTBraingear.Droid", Icon = "@drawable/icon", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+	[Activity (Label = "QUTBraingear", Icon = "@drawable/icon", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
 	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
 	{
 		const string localDbFilename = "localstore.db";
