@@ -4,12 +4,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="QUTBraingear.LoginPage" 
              Title="Log In Page">
-  
-   <StackLayout Spacing="40" Padding="40" VerticalOptions="Center">
-   		<Label x:Name="label_loginTitle" FontAttributes="Bold" Text="QUT BrainGear" TextColor="#6666b2" Font="50" />
-   		<Entry x:Name="Username" Placeholder="Username" Text="{Binding Username}"/>
-   		<Entry x:Name="Password" Placeholder="Password" Text="{Binding Password}" IsPassword="true"/>
 
-     <Button x:Name="button_login" Text="Login" HorizontalOptions="CenterAndExpand" Clicked="OnLoginTap"/>
+
+   <StackLayout Padding="10" BackgroundColor="#f2f2f2" VerticalOptions="FillAndExpand">
+
+   <Image Source="BrainGear.png" WidthRequest="250"/>
+   <Frame x:Name="frame_login" HeightRequest="250" OutlineColor="Silver" BackgroundColor="White" >
+   		<StackLayout>
+   					<Label x:Name="label_user" Text="QUT ID" TextColor="Black" Font="18" />
+   					<Entry x:Name="Username" Text="{Binding Username}" BackgroundColor="#f9f9f9" />
+   					<Label x:Name="label_password" Text="Password" TextColor="Black" Font="18" />
+   					<Entry x:Name="Password" Text="{Binding Password}" BackgroundColor="#f9f9f9" IsPassword="true"/>
+					<Button Grid.Column="0" BackgroundColor="#003f77" x:Name="button_login" Text="Login" Clicked="OnLoginTap"/>
+					<Label x:Name="label_forgot" Text="Forgot your QUT ID or password? Tap here." TextColor="Black" Font="10" />
+				</StackLayout>
+     </Frame>
+
    </StackLayout>
 </local:BaseView>

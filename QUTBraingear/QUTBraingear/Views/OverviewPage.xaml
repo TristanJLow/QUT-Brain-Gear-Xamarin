@@ -3,8 +3,8 @@
 xmlns:local="clr-namespace:QUTBraingear"
 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 x:Class="QUTBraingear.OverviewPage">
-	<StackLayout>
-	    <Frame x:Name="frame_recentVideos" VerticalOptions="FillAndExpand"  HeightRequest="120" OutlineColor="Silver" BackgroundColor="White" >
+	<StackLayout Padding="10" BackgroundColor="#f2f2f2">
+	    <Frame x:Name="frame_recentVideos" VerticalOptions="Fill"  HeightRequest="120" OutlineColor="Silver" BackgroundColor="White" >
 	    <RelativeLayout>
 			<ListView
 				x:Name="MessagesListView"
@@ -23,7 +23,7 @@ x:Class="QUTBraingear.OverviewPage">
 							<ViewCell.View>
 								<StackLayout>
 									<Image Source="PlaceholderVid.png" TranslationY="56" Rotation="90" />
-									<Label Text="{Binding moduleTitle}" TextColor ="White" XAlign="Center" YAlign="Center" TranslationX="-60" TranslationY="-5" Rotation="90" BackgroundColor="#003f77" />
+									<Label Text="{Binding moduleTitle}" TextColor ="Black" XAlign="Center" YAlign="Center" TranslationX="-60" TranslationY="-5" Rotation="90" BackgroundColor="White" />
 								</StackLayout>
 							</ViewCell.View>
 						</ViewCell>
@@ -33,26 +33,26 @@ x:Class="QUTBraingear.OverviewPage">
 			</RelativeLayout>
 		</Frame>
 							
-	    <Frame x:Name="frame_liveqa" VerticalOptions="FillAndExpand"  HeightRequest="120" OutlineColor="Silver" BackgroundColor="White" >
+	    <Frame x:Name="frame_liveqa" VerticalOptions="Fill"  HeightRequest="70" OutlineColor="Silver" BackgroundColor="White" >
 				<ListView x:Name="listview_liveqa" ItemsSource="{Binding qaList, Mode=OneWay}">
 					<ListView.Header>
-						<Label x:Name="label_qaSection" FontSize="Large" TextColor="Black" Text="Live Questions and Answers" />
+						<Label x:Name="label_qaSection" FontSize="18" TextColor="Black" Text="Live Questions and Answers" />
 					</ListView.Header>
 					<ListView.ItemTemplate>
 						<DataTemplate>
 							<ViewCell>
 								<Grid >
 									<Grid.RowDefinitions>
-										<RowDefinition Height="1*"/>
+										<RowDefinition Height="0.3*"/>
 										<RowDefinition Height="1*"/>
 									</Grid.RowDefinitions>
 									<Grid.ColumnDefinitions>
 										<ColumnDefinition Width="2*"/>
 										<ColumnDefinition Width="1*"/>
 									</Grid.ColumnDefinitions>
-									<Label Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding qaTitle}" x:Name="qaTitle" TextColor ="Black"/>
-									<Frame Grid.Row="1" Grid.Column="2" OutlineColor="Black" BackgroundColor="Red" Padding="0">
-										<Label XAlign="Center"  Text="{Binding dateOccurs}" TextColor ="White"/>
+									<Label Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding qaTitle}" x:Name="qaTitle" TextColor ="#7c7c7c" FontSize="18"/>
+									<Frame Grid.Row="1" Grid.Column="2" OutlineColor="White" BackgroundColor="Red" Padding="1">
+										<Label XAlign="Center"  Text="{Binding dateOccurs}" TextColor ="White" FontSize="10"/>
 									</Frame>
 								</Grid>
 							</ViewCell>
@@ -60,17 +60,17 @@ x:Class="QUTBraingear.OverviewPage">
 					</ListView.ItemTemplate>
 				</ListView>
 		</Frame>
-		<Frame x:Name="frame_skills" VerticalOptions="FillAndExpand" Padding="20"  HeightRequest="150" OutlineColor="Silver" BackgroundColor="White" >
+		<Frame x:Name="frame_skills" VerticalOptions="Fill" Padding="20"  HeightRequest="115" OutlineColor="Silver" BackgroundColor="White" >
 			<ListView x:Name="listview_skills" ItemsSource="{Binding skillList, Mode=OneWay}">
 				<ListView.Header>
-					<Label x:Name="label_skillSection" FontSize="Large" TextColor="Black" Text="Skills" />
+					<Label x:Name="label_skillSection" FontSize="18" TextColor="Black" Text="Skills" />
 				</ListView.Header>
 				<ListView.ItemTemplate>
 					<DataTemplate>
 						<ViewCell>
 							<Grid>
 								<Grid.RowDefinitions>
-									<RowDefinition Height="1*"/>
+									<RowDefinition Height="0.5*"/>
 									<RowDefinition Height="1*"/>
 
 								</Grid.RowDefinitions>
@@ -78,8 +78,8 @@ x:Class="QUTBraingear.OverviewPage">
 									<ColumnDefinition Width="2*"/>
 									<ColumnDefinition Width="1*"/>
 								</Grid.ColumnDefinitions>
-								<Label Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding skillTitle}" TextColor ="Black"/>
-								<Label Grid.Row="1" Grid.Column="2" Text="{Binding skillPoints}" TextColor ="Black"/>
+								<Label Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding skillTitle}"  TextColor ="#7c7c7c" FontSize="18"/>
+								<Label Grid.Row="1" Grid.Column="2" Text="{Binding skillPoints}" TextColor ="Black" FontSize="18"/>
 							</Grid>
 						</ViewCell>
 					</DataTemplate>

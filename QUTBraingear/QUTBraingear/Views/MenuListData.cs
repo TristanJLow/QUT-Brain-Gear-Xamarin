@@ -24,7 +24,7 @@ namespace QUTBrainGear
 
 			this.Add (new MenuItem () { 
 				Title = "Search", 
-				IconSource = "progressmap.png", 
+				IconSource = "search.png", 
 				TargetType = typeof(SearchPage)
 			});
 		}

@@ -22,7 +22,7 @@ namespace QUTBrainGear
 				Content = new Label {
 					TextColor = Color.FromHex ("#ffffff"),
 					FontSize = 15,
-					Text = "USERNAME \nEmail ",
+					Text = "Tristan Low \ntristan@qut.edu.au ",
 				}
 			};
 

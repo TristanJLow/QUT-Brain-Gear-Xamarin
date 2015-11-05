@@ -4,11 +4,12 @@ xmlns:local="clr-namespace:QUTBraingear"
 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 x:Class="QUTBraingear.SearchPage">
 	<ScrollView>
-		<StackLayout>
+		<StackLayout BackgroundColor="#f2f2f2">
             <SearchBar Placeholder="Search" x:Name="SearchBarControl" Text="{Binding SearchText}" SearchCommand="{Binding SearchCommand}" BackgroundColor="#003f77"/>
+            <Frame x:Name="frame_results" VerticalOptions="FillAndExpand"  HeightRequest="120"  BackgroundColor="White" >
             <ListView x:Name="listview_search" ItemsSource="{Binding SearchResults, Mode=OneWay}" BackgroundColor="White" ItemTapped="OnModuleTap">
                 <ListView.Header>
-                    <Label x:Name="label_searchSection" FontSize="Large" TextColor="Black" Text="Search Results" />
+                    <Label x:Name="label_searchSection" FontSize="15" TextColor="Black" Text="Search Results" />
                 </ListView.Header>
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -31,6 +32,7 @@ x:Class="QUTBraingear.SearchPage">
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            </Frame>
         </StackLayout>
 	</ScrollView>
 </local:BaseView>

@@ -4,16 +4,16 @@ xmlns:local="clr-namespace:QUTBraingear"
 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 x:Class="QUTBraingear.ModulePage">
 	<ScrollView>
-		<StackLayout>
+		<StackLayout BackgroundColor="#f2f2f2">
 			<WebView x:Name="moduleVideo" Source="{Binding ModuleVideo}" HeightRequest="250">
 			</WebView>
-			<Frame x:Name="frame_moduleInfo" OutlineColor="Silver" BackgroundColor="White" >
+			<Frame x:Name="frame_moduleInfo" BackgroundColor="White" >
 				<StackLayout VerticalOptions="FillAndExpand">
-					<Label x:Name="label_moduleTitle" Text="{Binding ModuleTitle}" TextColor="Black" Font="20" />
+					<Label x:Name="label_moduleTitle" Text="{Binding ModuleTitle}" TextColor="Black" Font="18" />
 					<Label x:Name="label_moduleDesc" Text="{Binding ModuleDesc}" TextColor="Black" Font="14" />
 				</StackLayout>
 			</Frame>
-			<Frame x:Name="frame_moduleSkills" Padding="20" OutlineColor="Silver" BackgroundColor="White" >
+			<Frame x:Name="frame_moduleSkills" Padding="20" BackgroundColor="White" >
 				<StackLayout VerticalOptions="FillAndExpand" >
 					<ListView x:Name="listview_skills" ItemsSource="{Binding ModuleSkills, Mode=OneWay}" HeightRequest="80">
 						<ListView.ItemTemplate>
@@ -26,7 +26,7 @@ x:Class="QUTBraingear.ModulePage">
 										<Grid.ColumnDefinitions>
 											<ColumnDefinition Width="*"/>
 										</Grid.ColumnDefinitions>
-										<Label Text="{Binding skillTitle}" TextColor ="Black" Font="20"/>
+										<Label Text="{Binding skillTitle}" TextColor ="Black" Font="18"/>
 										<RelativeLayout Grid.Column="1" HorizontalOptions="End">
 											<Image x:Name="skillBG" Source="skill_backing.png"
 												RelativeLayout.XConstraint=
@@ -34,7 +34,7 @@ x:Class="QUTBraingear.ModulePage">
 														Property=Width,
 														Factor=0.5}"
 											/>
-											<Label Text="{Binding skillPoints}" TextColor ="White" Font="20" TranslationX="9"
+											<Label Text="{Binding skillPoints}" TextColor ="White" Font="18" TranslationX="9"
 												RelativeLayout.XConstraint=
 													"{ConstraintExpression Type=RelativeToParent, 
 														Property=Width,
@@ -48,12 +48,12 @@ x:Class="QUTBraingear.ModulePage">
 					</ListView>
 				</StackLayout>
 			</Frame>
-			<Frame x:Name="frame_moduleComments" OutlineColor="Silver" BackgroundColor="White" >
+			<Frame x:Name="frame_moduleComments" BackgroundColor="White" >
 				<StackLayout VerticalOptions="FillAndExpand" >
 					<ListView x:Name="listview_comments" ItemsSource="{Binding ModuleComments}" HeightRequest="{Binding ListHeight}" SeparatorColor="Black" HasUnevenRows="true" >
 						<ListView.Header>
 							<StackLayout>
-						        <Label Text="Comments" TextColor="Black" Font="20" />
+						        <Label Text="Comments" TextColor="Black" Font="18" />
 						    </StackLayout>
 						</ListView.Header>
 						<ListView.ItemTemplate>
@@ -66,10 +66,10 @@ x:Class="QUTBraingear.ModulePage">
 							</DataTemplate>
 						</ListView.ItemTemplate>
 					</ListView>
-					<Frame Padding="0" VerticalOptions="FillAndExpand" BackgroundColor="Silver" >
+					<Frame Padding="0" VerticalOptions="FillAndExpand" BackgroundColor="Gray" >
 						<Editor VerticalOptions = "FillAndExpand" x:Name ="editor_addComment" HeightRequest="80" Text="{Binding AddComment}" />
 					</Frame>
-					<Button x:Name="button_addComment" Text="Add Comment" HorizontalOptions="CenterAndExpand" Command="{Binding AddCommentsCommand}" />
+					<Button x:Name="button_addComment" Text="Add Comment" BackgroundColor="#003f77" Command="{Binding AddCommentsCommand}" />
 					<Grid>
 						<Grid.RowDefinitions>
 							<RowDefinition Height="*"/>
@@ -78,8 +78,8 @@ x:Class="QUTBraingear.ModulePage">
 							<ColumnDefinition Width="*"/>
 							<ColumnDefinition Width="*"/>
 						</Grid.ColumnDefinitions>
-						<Button Grid.Column="0" x:Name="button_wiki" Text="Wiki" Clicked="OnWikiTap" />
-						<Button Grid.Column="1" x:Name="button_quiz" Text="Quiz" Clicked="OnQuizTap" />
+						<Button Grid.Column="0" x:Name="button_wiki" Text="Wiki" Clicked="OnWikiTap" BackgroundColor="#003f77" />
+						<Button Grid.Column="1" x:Name="button_quiz" Text="Quiz" Clicked="OnQuizTap" BackgroundColor="#003f77" />
 					</Grid>
 				</StackLayout>
 			</Frame>

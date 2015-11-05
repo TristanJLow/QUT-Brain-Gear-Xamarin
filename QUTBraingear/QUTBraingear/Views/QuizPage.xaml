@@ -5,7 +5,7 @@ xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
 x:Class="QUTBraingear.QuizPage">
     <ScrollView>
-        <StackLayout BackgroundColor="White">
+        <StackLayout Padding="10" BackgroundColor="#f2f2f2" VerticalOptions="FillAndExpand">
             <Label Text="Q1 - We can use reserved keywords as identifiers in C#?" x:Name="Q1" TextColor ="Black"/>
                 <controls:CheckBox x:Name="Answer11"  DefaultText="A - true" HorizontalOptions="FillAndExpand" TextColor="Green" FontName="AmericanTypewriter"/>
                 <controls:CheckBox x:Name="Answer12" DefaultText="B - false" HorizontalOptions="FillAndExpand" TextColor="Green" FontName="AmericanTypewriter"/>
@@ -19,11 +19,11 @@ x:Class="QUTBraingear.QuizPage">
                 <controls:CheckBox x:Name="Answer32" DefaultText="B - false" HorizontalOptions="FillAndExpand" TextColor="Green" FontName="AmericanTypewriter"/>
 
                 <Label Text="Q4 - Which of the following is true about exceptions in C#?" x:Name="Q4" TextColor ="Black"/>
-                <controls:CheckBox x:Name="Answer41"  DefaultText="A - C# exceptions are represented by classes" HorizontalOptions="FillAndExpand" TextColor="Green" FontName="AmericanTypewriter"/>
+                <controls:CheckBox x:Name="Answer41"  DefaultText="A - C# exceptions are represented by classes" HorizontalOptions="FillAndExpand" TextColor="Green" FontName="AmericanTypewriter" />
                 <controls:CheckBox x:Name="Answer42" DefaultText="B - Exceptions are derived from Sytem.Exception" HorizontalOptions="FillAndExpand" TextColor="Green" FontName="AmericanTypewriter"/>
 
-            <Button x:Name="button_ok" Text="Ok"  Clicked="OnOkTap"/>
-            <Button x:Name="button_home" Text="Home"  Clicked="OnHomeTap"/>
+            <Button x:Name="button_ok" Text="Ok"  Clicked="OnOkTap" BackgroundColor="#003f77"/>
+            <Button x:Name="button_home" Text="Home"  Clicked="OnHomeTap" BackgroundColor="#003f77"/>
         </StackLayout>
     </ScrollView>
 </local:BaseView>
