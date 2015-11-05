@@ -3,7 +3,7 @@
 xmlns:local="clr-namespace:QUTBraingear"
 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 x:Class="QUTBraingear.ProgressMapPage">
-	<StackLayout>
+	<StackLayout BackgroundColor="#F5F5F5">
 		<Grid>
 			<Grid.RowDefinitions>
 				<RowDefinition Height="1*"/>
@@ -26,24 +26,21 @@ x:Class="QUTBraingear.ProgressMapPage">
 				<ColumnDefinition Width="1*"/>
 				<ColumnDefinition Width="1*"/>
 			</Grid.ColumnDefinitions>
-			<Image Grid.Column="0" Grid.Row="0" Source="ProgrammingPercent.png" >
+			<Image Grid.Column="0" TranslationX="5" Grid.Row="0" Source="Programming_FIX.png" >
 				<Image.GestureRecognizers>
-				    <TapGestureRecognizer Command="{Binding programmingModule}" />
+				    <TapGestureRecognizer  />
 				</Image.GestureRecognizers>
 			</Image>
-			<Label Grid.Column="1" Grid.Row="0" Text="Mobile App Development" />
-			<Image Grid.Column="0" Grid.Row="1" Source="DesignPercent.png" >
+			<Image Grid.Column="0" Grid.Row="1" Source="Design_FIX.png" >
 				<Image.GestureRecognizers>
-				    <TapGestureRecognizer Command="{Binding designModule}" />
+				    <TapGestureRecognizer  Command="OnModuleTap" />
 				</Image.GestureRecognizers>
 			</Image>
-			<Label Grid.Column="1" Grid.Row="1" Text="Web Design" />
-			<Image Grid.Column="0" Grid.Row="2" Source="MarketingPercent.png" >
-				<Image.GestureRecognizers>
-				    <TapGestureRecognizer Command="{Binding marketingModule}" />
+			<Image Grid.Column="0" Grid.Row="2" Source="Marketing_FIX.png" >
+				<Image.GestureRecognizers> 
+				    <TapGestureRecognizer  />
 				</Image.GestureRecognizers>
 			</Image>
-			<Label Grid.Column="1" Grid.Row="2" Text="International Markets" />
 		</Grid>
 	</StackLayout>
 </local:BaseView>

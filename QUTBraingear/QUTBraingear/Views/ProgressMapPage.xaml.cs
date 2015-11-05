@@ -15,6 +15,10 @@ namespace QUTBraingear
 			BindingContext = App.Locator.progressMap;
 		}
 
+		void OnModuleTap(object sender, EventArgs args) {
+			
+			((MasterDetailPage)Parent).Detail = new ModulePage ("0");
+		}
 
 	}
 }
